@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - ShoreSquad</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+    <!-- Theme Controls -->
+    <div class="account-theme-controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <div class="theme-toggle-beach">
+                <div class="beach-ground"></div>
+                <div class="beach-water"></div>
+                <div class="celestial-body sun"></div>
+                <div class="celestial-body moon"></div>
+            </div>
+        </button>
+        <button class="chaos-circle" id="chaosCircle" aria-label="Psychedelic chaos" title="Just vibes..." style="display: none;">
+            <div class="chaos-circle-inner"></div>
+        </button>
+    </div>
+
+    <!-- Account Page Content -->
+    <div class="account-container">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Profile Header -->
+                    <div class="account-header">
+                        <div class="profile-banner"></div>
+                        <div class="profile-info">
+                            <div class="profile-avatar-large">
+                                <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=asian&t=leader" alt="Profile">
+                                <button class="avatar-edit-btn">
+                                    <i class="bi bi-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-details">
+                                <h1>Wei Ting Tan</h1>
+                                <p class="profile-username">@weiting_squad</p>
+                                <div class="profile-badges">
+                                    <span class="badge-item leader">
+                                        <i class="bi bi-star-fill"></i> Squad Leader
+                                    </span>
+                                    <span class="badge-item">
+                                        <i class="bi bi-award-fill"></i> Top Contributor
+                                    </span>
+                                    <span class="badge-item">
+                                        <i class="bi bi-heart-fill"></i> Eco Warrior
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Stats -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3 col-6">
+                            <div class="account-stat-card">
+                                <i class="bi bi-trash"></i>
+                                <h3>128 kg</h3>
+                                <p>Waste Collected</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="account-stat-card">
+                                <i class="bi bi-calendar-check"></i>
+                                <h3>15</h3>
+                                <p>Events Attended</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="account-stat-card">
+                                <i class="bi bi-people"></i>
+                                <h3>42</h3>
+                                <p>Crew Members</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="account-stat-card">
+                                <i class="bi bi-trophy"></i>
+                                <h3>89</h3>
+                                <p>Points Earned</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Sections -->
+                    <div class="row g-4">
+                        <!-- Personal Information -->
+                        <div class="col-lg-6">
+                            <div class="account-card">
+                                <div class="account-card-header">
+                                    <h3><i class="bi bi-person-fill"></i> Personal Information</h3>
+                                    <button class="btn-edit"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="account-card-body">
+                                    <div class="info-row">
+                                        <span class="info-label">Full Name</span>
+                                        <span class="info-value">Wei Ting Tan</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Email</span>
+                                        <span class="info-value">weiting@shoresquad.sg</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Phone</span>
+                                        <span class="info-value">+65 9123 4567</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Location</span>
+                                        <span class="info-value">Singapore</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Member Since</span>
+                                        <span class="info-value">January 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="col-lg-6">
+                            <div class="account-card">
+                                <div class="account-card-header">
+                                    <h3><i class="bi bi-trophy-fill"></i> Recent Achievements</h3>
+                                </div>
+                                <div class="account-card-body">
+                                    <div class="achievement-item">
+                                        <div class="achievement-icon gold">
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="achievement-info">
+                                            <h5>Beach Hero</h5>
+                                            <p>Collected 100kg+ of waste</p>
+                                            <small>Earned 2 days ago</small>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-item">
+                                        <div class="achievement-icon silver">
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+                                        <div class="achievement-info">
+                                            <h5>Squad Builder</h5>
+                                            <p>Recruited 10+ members</p>
+                                            <small>Earned 1 week ago</small>
+                                        </div>
+                                    </div>
+                                    <div class="achievement-item">
+                                        <div class="achievement-icon bronze">
+                                            <i class="bi bi-calendar3"></i>
+                                        </div>
+                                        <div class="achievement-info">
+                                            <h5>Consistent Contributor</h5>
+                                            <p>Attended 10 events</p>
+                                            <small>Earned 2 weeks ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity History -->
+                        <div class="col-lg-12">
+                            <div class="account-card">
+                                <div class="account-card-header">
+                                    <h3><i class="bi bi-clock-history"></i> Recent Activity</h3>
+                                </div>
+                                <div class="account-card-body">
+                                    <div class="activity-timeline">
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-success">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <h5>Attended Pasir Ris Beach Cleanup</h5>
+                                                <p>Collected 12kg of waste with 8 squad members</p>
+                                                <small>2 days ago</small>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-primary">
+                                                <i class="bi bi-person-plus"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <h5>Added new crew member</h5>
+                                                <p>Marcus Lim joined your squad</p>
+                                                <small>5 days ago</small>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-warning">
+                                                <i class="bi bi-trophy"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <h5>Achievement Unlocked</h5>
+                                                <p>Earned "Beach Hero" badge</p>
+                                                <small>1 week ago</small>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-success">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <h5>Attended East Coast Park Cleanup</h5>
+                                                <p>Collected 15kg of waste with 12 squad members</p>
+                                                <small>2 weeks ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferences -->
+                        <div class="col-lg-6">
+                            <div class="account-card">
+                                <div class="account-card-header">
+                                    <h3><i class="bi bi-gear-fill"></i> Preferences</h3>
+                                </div>
+                                <div class="account-card-body">
+                                    <div class="preference-item">
+                                        <div class="preference-label">
+                                            <i class="bi bi-bell"></i>
+                                            <span>Email Notifications</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="emailNotif" checked>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-label">
+                                            <i class="bi bi-phone"></i>
+                                            <span>SMS Notifications</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="smsNotif">
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-label">
+                                            <i class="bi bi-eye"></i>
+                                            <span>Public Profile</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="publicProfile" checked>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-label">
+                                            <i class="bi bi-geo-alt"></i>
+                                            <span>Location Sharing</span>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="locationShare" checked>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Actions -->
+                        <div class="col-lg-6">
+                            <div class="account-card">
+                                <div class="account-card-header">
+                                    <h3><i class="bi bi-shield-lock-fill"></i> Account Security</h3>
+                                </div>
+                                <div class="account-card-body">
+                                    <button class="action-btn">
+                                        <i class="bi bi-key"></i>
+                                        <span>Change Password</span>
+                                        <i class="bi bi-chevron-right ms-auto"></i>
+                                    </button>
+                                    <button class="action-btn">
+                                        <i class="bi bi-shield-check"></i>
+                                        <span>Two-Factor Authentication</span>
+                                        <i class="bi bi-chevron-right ms-auto"></i>
+                                    </button>
+                                    <button class="action-btn">
+                                        <i class="bi bi-download"></i>
+                                        <span>Download My Data</span>
+                                        <i class="bi bi-chevron-right ms-auto"></i>
+                                    </button>
+                                    <button class="action-btn danger">
+                                        <i class="bi bi-trash"></i>
+                                        <span>Delete Account</span>
+                                        <i class="bi bi-chevron-right ms-auto"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/theme.js"></script>
+</body>
+</html>
