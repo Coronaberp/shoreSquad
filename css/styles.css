@@ -1,22 +1,32 @@
 /* ShoreSquad Custom Styles with Bootstrap 5 */
 
 :root {
-    --primary-color: #0077b6;
+    --primary-color: #1e88e5;
     --secondary-color: #00b4d8;
     --accent-color: #90e0ef;
     --neutral-light: #f0f8ff;
     --neutral-dark: #333333;
+    --bg-light: #f5f9fc;
+}
+
+body {
+    background-color: var(--bg-light);
 }
 
 /* Override Bootstrap primary color */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    background-color: #1565c0;
+    border-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
 }
 
 .text-primary {
@@ -25,44 +35,68 @@
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
 }
 
 /* Stat Cards */
 .stat-card {
-    background: white;
+    background: #e3f2fd;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
 }
 
 .stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.stat-card h2 {
+    font-weight: 700;
 }
 
 /* Cleanup Cards */
 .cleanup-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-width: 2px !important;
+    border-width: 3px !important;
+    border-left-width: 5px !important;
+    border-color: #4caf50 !important;
+    border-radius: 12px !important;
+    background: white;
 }
 
 .cleanup-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.2) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Navbar customization */
+.navbar {
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     color: var(--primary-color) !important;
+    font-weight: 700;
 }
 
 .nav-link {
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.25rem;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
     color: var(--primary-color) !important;
+    background-color: #e3f2fd;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    background-color: #e3f2fd;
 }
 
 /* Smooth scrolling */
@@ -72,14 +106,39 @@ html {
 
 /* Custom card styling */
 .card {
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cleanup-card .card-body {
+    padding: 1.5rem;
+}
+
+.cleanup-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+}
+
+.cleanup-card .card-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.cleanup-card .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
 }
 
 /* Avatar styling */
 .rounded-circle {
     border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Comment list styling */
@@ -96,6 +155,52 @@ footer {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
+/* Section styling */
+section {
+    position: relative;
+}
+
+#upcoming-cleanups {
+    background: white;
+}
+
+/* Bottom Navigation (Mobile) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 0;
+    z-index: 1000;
+    display: none;
+}
+
+.bottom-nav .nav-item {
+    flex: 1;
+    text-align: center;
+}
+
+.bottom-nav .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #666;
+    padding: 0.5rem;
+}
+
+.bottom-nav .nav-link.active {
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.bottom-nav .nav-link i {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section h1 {
@@ -104,5 +209,13 @@ footer {
     
     .stat-card {
         margin-bottom: 1rem;
+    }
+    
+    .bottom-nav {
+        display: flex;
+    }
+    
+    body {
+        padding-bottom: 70px;
     }
 }
