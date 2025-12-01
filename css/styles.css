@@ -273,11 +273,43 @@ body {
 
 /* Dark mode hero adjustments */
 body.dark-mode .hero-header {
-    background: linear-gradient(135deg, #003554 0%, #006494 50%, #0077b6 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%);
 }
 
 body.dark-mode .image-overlay {
-    background: linear-gradient(135deg, rgba(0, 53, 84, 0.4) 0%, rgba(0, 100, 148, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(13, 17, 23, 0.6) 0%, rgba(22, 27, 34, 0.4) 100%);
+}
+
+body.dark-mode .hero-title {
+    color: #f0f6fc;
+}
+
+body.dark-mode .hero-subtitle {
+    color: #8b949e;
+}
+
+body.dark-mode .brand-logo {
+    color: #58a6ff;
+}
+
+body.dark-mode .hero-btn.primary {
+    background: #238636;
+    color: #ffffff;
+}
+
+body.dark-mode .hero-btn.primary:hover {
+    background: #2ea043;
+    box-shadow: 0 10px 30px rgba(46, 160, 67, 0.3);
+}
+
+body.dark-mode .hero-btn.secondary {
+    border-color: #30363d;
+    color: #c9d1d9;
+}
+
+body.dark-mode .hero-btn.secondary:hover {
+    border-color: #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
 }
 
 /* Stat Cards */
@@ -770,32 +802,42 @@ section {
 
 /* Dark mode styles */
 body.dark-mode {
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
-    color: #e0e0e0;
+    background: #0d1117;
+    color: #c9d1d9;
     transition: background 0.5s ease, color 0.3s ease;
 }
 
 body.dark-mode .navbar {
-    background: rgba(15, 20, 35, 0.95) !important;
+    background: #161b22 !important;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.1);
-    border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #21262d;
 }
 
 body.dark-mode .navbar-brand,
 body.dark-mode .nav-link {
-    color: #e0e0e0 !important;
+    color: #c9d1d9 !important;
     transition: color 0.3s ease;
 }
 
 body.dark-mode .nav-link:hover,
 body.dark-mode .nav-link.active {
-    color: var(--accent-color) !important;
-    text-shadow: 0 0 10px rgba(144, 224, 239, 0.5);
+    color: #58a6ff !important;
+    background-color: rgba(88, 166, 255, 0.1);
 }
 
 body.dark-mode .beach-water {
     background: linear-gradient(to bottom, #0f3460 0%, #16213e 100%);
+}
+
+body.dark-mode .weather-card {
+    background: #161b22 !important;
+    border-color: #21262d !important;
+}
+
+body.dark-mode .weather-card:hover {
+    border-color: #58a6ff !important;
+    background: #1c2128 !important;
 }
 
 body.dark-mode .sun {
@@ -814,27 +856,28 @@ body.dark-mode .weather-today,
 body.dark-mode .forecast-section,
 body.dark-mode .crew-container,
 body.dark-mode .crew-card {
-    background: rgba(22, 33, 62, 0.8);
+    background: #161b22;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 180, 216, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #21262d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
-    color: #e0e0e0;
+    color: #c9d1d9;
 }
 
 body.dark-mode .stat-card:hover,
 body.dark-mode .cleanup-card:hover,
 body.dark-mode .crew-card:hover {
-    border-color: var(--secondary-color);
-    box-shadow: 0 8px 30px rgba(0, 180, 216, 0.3);
+    border-color: #58a6ff;
+    box-shadow: 0 8px 30px rgba(88, 166, 255, 0.2);
     transform: translateY(-5px);
+    background: #1c2128;
 }
 
 body.dark-mode .card-text,
 body.dark-mode .text-muted,
 body.dark-mode .crew-role,
 body.dark-mode .date-text {
-    color: #b0b0b0 !important;
+    color: #8b949e !important;
 }
 
 body.dark-mode h1,
@@ -844,41 +887,41 @@ body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6,
 body.dark-mode .crew-name {
-    color: #f0f0f0;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: #f0f6fc;
+    text-shadow: none;
 }
 
 body.dark-mode .badge {
-    background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(144, 224, 239, 0.3)) !important;
-    color: var(--accent-color) !important;
-    border: 1px solid var(--secondary-color);
-    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.2);
+    background: rgba(88, 166, 255, 0.15) !important;
+    color: #58a6ff !important;
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    box-shadow: none;
 }
 
 body.dark-mode footer {
-    background: rgba(10, 14, 25, 0.95) !important;
-    border-top: 1px solid rgba(0, 180, 216, 0.2);
+    background: #0d1117 !important;
+    border-top: 1px solid #21262d;
 }
 
 body.dark-mode .theme-toggle {
-    border-color: rgba(0, 180, 216, 0.3);
-    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.1);
+    border-color: #21262d;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .bi-trash,
 body.dark-mode .bi-geo-alt,
 body.dark-mode .bi-people {
-    filter: drop-shadow(0 0 10px currentColor);
+    filter: none;
 }
 
 body.dark-mode #stats {
-    background: rgba(15, 20, 35, 0.3);
+    background: #0d1117;
 }
 
 body.dark-mode #events,
 body.dark-mode #map,
 body.dark-mode #crew {
-    background: rgba(10, 14, 25, 0.2);
+    background: #0d1117;
 }
 
 /* Chaos Toggle Button */
