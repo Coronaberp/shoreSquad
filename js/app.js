@@ -16,54 +16,109 @@ async function fetchWeatherForecast() {
         const tempResponse = await axios.get('https://api.data.gov.sg/v1/environment/air-temperature');
         const currentTemp = tempResponse.data.items[0].readings[0].value;
         
-        // Create weather forecast cards
-        let forecastHTML = '<div class="row g-3">';
+        // Get first forecast for today's details
+        const today = forecast[0];
+        const todayIcon = getWeatherIcon(today.forecast);
+        const todayIconColor = getWeatherIconColor(today.forecast);
         
+        // Create today's weather section
+        const todayWeather = `
+            <div class="row g-4 mb-4">
+                <div class="col-lg-5">
+                    <div class="weather-today">
+                        <h3>Today's Weather</h3>
+                        <p class="text-muted mb-3">${today.forecast}</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <div class="current-temp">${currentTemp}°C</div>
+                            </div>
+                            <div>
+                                <i class="bi ${todayIcon} weather-icon-large ${todayIconColor}"></i>
+                            </div>
+                        </div>
+                        ${today.forecast.toLowerCase().includes('rain') || today.forecast.toLowerCase().includes('shower') || today.forecast.toLowerCase().includes('thunder') ? `
+                        <div class="weather-alert">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-exclamation-triangle text-danger me-2"></i>
+                                <strong class="text-danger">Consider rescheduling - rain expected</strong>
+                            </div>
+                        </div>
+                        ` : ''}
+                        <div class="row g-3 mt-3">
+                            <div class="col-6">
+                                <div class="weather-detail-box">
+                                    <i class="bi bi-thermometer-half"></i>
+                                    <div class="detail-label">High/Low</div>
+                                    <div class="detail-value">${today.temperature.high}°/${today.temperature.low}°C</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="weather-detail-box">
+                                    <i class="bi bi-droplet"></i>
+                                    <div class="detail-label">Humidity</div>
+                                    <div class="detail-value">${today.relative_humidity.low}-${today.relative_humidity.high}%</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="weather-detail-box">
+                                    <i class="bi bi-wind"></i>
+                                    <div class="detail-label">Wind</div>
+                                    <div class="detail-value">${today.wind.speed.low}-${today.wind.speed.high} km/h</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="weather-detail-box">
+                                    <i class="bi bi-clock"></i>
+                                    <div class="detail-label">Updated</div>
+                                    <div class="detail-value">${new Date().toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' })}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="forecast-section">
+                        <h4><i class="bi bi-sun"></i> 4-Day Forecast</h4>
+                        <div class="row g-3">
+        `;
+        
+        // Create forecast cards
+        let forecastCards = '';
         forecast.slice(0, 4).forEach((day, index) => {
             const date = new Date(day.date);
-            const dayName = index === 0 ? 'Today' : date.toLocaleDateString('en-SG', { weekday: 'short' });
-            const dateStr = date.toLocaleDateString('en-SG', { month: 'short', day: 'numeric' });
+            const dayName = index === 0 ? 'Tomorrow' : date.toLocaleDateString('en-SG', { weekday: 'short', month: 'short', day: 'numeric' });
+            const dateStr = date.toLocaleDateString('en-SG', { weekday: 'short', month: 'short', day: 'numeric' });
             
-            // Map forecast to weather icons
             const weatherIcon = getWeatherIcon(day.forecast);
+            const iconColor = getWeatherIconColor(day.forecast);
             
-            forecastHTML += `
-                <div class="col-md-3 col-6">
-                    <div class="card weather-card h-100">
-                        <div class="card-body text-center p-3">
-                            <h6 class="fw-bold mb-1">${dayName}</h6>
-                            <p class="text-muted small mb-2">${dateStr}</p>
-                            <i class="bi ${weatherIcon} fs-1 text-primary mb-2"></i>
-                            <p class="small mb-2">${day.forecast}</p>
-                            <div class="d-flex justify-content-center gap-2 small">
-                                <span class="text-danger fw-bold">${day.temperature.high}°C</span>
-                                <span class="text-muted">${day.temperature.low}°C</span>
-                            </div>
-                            <p class="small text-muted mb-0 mt-2">
-                                <i class="bi bi-droplet"></i> ${day.relative_humidity.high}%
-                            </p>
+            forecastCards += `
+                <div class="col-md-6 col-lg-3">
+                    <div class="weather-card text-center">
+                        <div class="day-name">${index === 0 ? 'Tomorrow' : date.toLocaleDateString('en-SG', { weekday: 'short' })}</div>
+                        <div class="date-text">${date.toLocaleDateString('en-SG', { month: 'short', day: 'numeric' })}</div>
+                        <i class="bi ${weatherIcon} forecast-icon ${iconColor}"></i>
+                        <div class="forecast-desc">${day.forecast}</div>
+                        <div class="mt-3">
+                            <span class="temp-high">${day.temperature.high}°</span>
+                            <span class="temp-low ms-2">${day.temperature.low}°</span>
+                        </div>
+                        <div class="humidity-text">
+                            <i class="bi bi-droplet-fill"></i> ${day.relative_humidity.low}-${day.relative_humidity.high}% humidity
                         </div>
                     </div>
                 </div>
             `;
         });
         
-        forecastHTML += '</div>';
-        
-        // Add current conditions header
-        const currentConditions = `
-            <div class="alert alert-info mb-4">
-                <div class="d-flex align-items-center justify-content-center">
-                    <i class="bi bi-thermometer-half fs-4 me-3"></i>
-                    <div>
-                        <strong>Current Temperature:</strong> ${currentTemp}°C
-                        <span class="ms-3 text-muted">Singapore</span>
+        const closingHTML = `
+                        </div>
                     </div>
                 </div>
             </div>
         `;
         
-        weatherInfo.innerHTML = currentConditions + forecastHTML;
+        weatherInfo.innerHTML = todayWeather + forecastCards + closingHTML;
         
     } catch (error) {
         console.error('Error fetching weather data:', error);
@@ -73,6 +128,21 @@ async function fetchWeatherForecast() {
                 Unable to load weather forecast. Please try again later.
             </div>
         `;
+    }
+}
+
+// Helper function to get icon color
+function getWeatherIconColor(forecast) {
+    const lowerForecast = forecast.toLowerCase();
+    
+    if (lowerForecast.includes('thunder') || lowerForecast.includes('storm')) {
+        return 'text-danger';
+    } else if (lowerForecast.includes('rain') || lowerForecast.includes('showers')) {
+        return 'text-primary';
+    } else if (lowerForecast.includes('cloudy')) {
+        return 'text-secondary';
+    } else {
+        return 'text-warning';
     }
 }
 
