@@ -36,10 +36,12 @@ body {
 
 /* Hero Section with Beach Theme */
 .hero-section {
-    background: linear-gradient(rgba(30, 136, 229, 0.15), rgba(0, 180, 216, 0.15)), 
-                url('../assets/sembawang-beach.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(rgba(30, 136, 229, 0.2), rgba(0, 180, 216, 0.2)), 
+                url("assets/sembawang-beach.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
     min-height: 500px;
     display: flex;
     align-items: center;
