@@ -616,6 +616,140 @@ section {
     margin-bottom: 0.25rem;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 2px solid #e3f2fd;
+    border-radius: 50px;
+    width: 70px;
+    height: 35px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.theme-toggle-beach {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.beach-ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, #d4a574 0%, #c4945f 100%);
+    border-radius: 0 0 50px 50px;
+}
+
+.beach-water {
+    position: absolute;
+    bottom: 40%;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, #87ceeb 0%, #4db8e8 100%);
+    transition: background 0.5s ease;
+}
+
+.celestial-body {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.sun {
+    background: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    top: 5px;
+    right: 8px;
+}
+
+.moon {
+    background: #f0f0f0;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    top: 5px;
+    right: 8px;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background: #16213e !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    background-color: rgba(30, 136, 229, 0.2);
+}
+
+body.dark-mode .beach-water {
+    background: linear-gradient(to bottom, #0f3460 0%, #16213e 100%);
+}
+
+body.dark-mode .sun {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+body.dark-mode .moon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .cleanup-card,
+body.dark-mode .weather-today,
+body.dark-mode .forecast-section,
+body.dark-mode .crew-container,
+body.dark-mode .crew-card {
+    background: #16213e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card-text,
+body.dark-mode .text-muted,
+body.dark-mode .crew-role,
+body.dark-mode .date-text {
+    color: #b0b0b0 !important;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h5,
+body.dark-mode .crew-name {
+    color: #e0e0e0;
+}
+
+body.dark-mode .theme-toggle {
+    border-color: #0f3460;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section h1 {
@@ -632,5 +766,16 @@ section {
     
     body {
         padding-bottom: 70px;
+    }
+    
+    .theme-toggle {
+        margin-left: 0.5rem;
+        width: 60px;
+        height: 30px;
+    }
+    
+    .celestial-body {
+        width: 14px;
+        height: 14px;
     }
 }

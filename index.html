@@ -38,6 +38,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#crew">My Crew</a>
                     </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <div class="theme-toggle-beach">
+                                <div class="beach-ground"></div>
+                                <div class="beach-water"></div>
+                                <div class="celestial-body sun"></div>
+                                <div class="celestial-body moon"></div>
+                            </div>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -55,8 +65,8 @@
         
         <div class="container text-center py-5">
             <div class="hero-glass-card">
-                <h1 class="display-3 fw-bold text-white mb-3">🌊 Rally Your Crew</h1>
-                <p class="lead text-white mb-4 fs-4">Track weather, and hit the next beach cleanup with our dope map app!</p>
+                <h1 class="display-3 fw-bold text-black mb-3">🌊 Rally Your Crew</h1>
+                <p class="lead text-black mb-4 fs-4">Track weather, and hit the next beach cleanup with our dope map app!</p>
                 <div class="hero-cta">
                     <a href="#events" class="btn btn-light btn-lg me-3 animate-btn">
                         <i class="bi bi-calendar-event"></i> View Events
@@ -438,6 +448,7 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- Custom JS -->
+    <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/app.js"></script>
 </body>
