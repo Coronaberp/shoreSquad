@@ -180,9 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Add sample comments
-    addComment('Sarah Chen', 'Super excited for the Pasir Ris cleanup! See you all there! 🌊');
-    addComment('Mike Johnson', 'This is my first cleanup event. Any tips for beginners?');
+    // Add sample comments with diverse Singapore names
+    addComment('Wei Ting Tan', 'Super excited for the Pasir Ris cleanup! See you all there! 🌊');
+    addComment('Raj Kumar', 'This is my first cleanup event. Any tips for beginners?');
+    addComment('Nurul Aisyah', 'Great initiative! Let\'s keep our beaches clean 💚');
 });
 
 // Optimize performance with lazy loading and debouncing
