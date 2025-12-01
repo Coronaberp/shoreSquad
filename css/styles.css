@@ -344,10 +344,26 @@ body.dark-mode .hero-btn.secondary:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
+body.dark-mode .cleanup-card {
+    background: #161b22 !important;
+    border-color: #238636 !important;
+}
+
+body.dark-mode .cleanup-card:hover {
+    background: #1c2128 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* Navbar customization */
 .navbar {
     background: white !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .navbar {
+    background: #161b22 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #21262d;
 }
 
 .navbar-brand {
@@ -426,6 +442,12 @@ html {
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .weather-today {
+    background: #161b22 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #21262d;
 }
 
 .weather-today h3 {
@@ -511,6 +533,16 @@ html {
     background: white;
 }
 
+body.dark-mode .weather-card {
+    background: #161b22 !important;
+    border: 1px solid #21262d;
+}
+
+body.dark-mode .weather-card:hover {
+    background: #1c2128 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
 .weather-card .day-name {
     font-weight: 700;
     color: var(--primary-color);
@@ -559,6 +591,12 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
+body.dark-mode .crew-container {
+    background: #161b22 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #21262d;
+}
+
 .crew-card {
     background: white;
     border: 2px solid #e3f2fd;
@@ -567,6 +605,16 @@ html {
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
+}
+
+body.dark-mode .crew-card {
+    background: #0d1117 !important;
+    border-color: #21262d !important;
+}
+
+body.dark-mode .crew-card:hover {
+    border-color: #58a6ff !important;
+    background: #161b22 !important;
 }
 
 .crew-card:hover {
@@ -831,15 +879,7 @@ body.dark-mode .beach-water {
     background: linear-gradient(to bottom, #0f3460 0%, #16213e 100%);
 }
 
-body.dark-mode .weather-card {
-    background: #161b22 !important;
-    border-color: #21262d !important;
-}
 
-body.dark-mode .weather-card:hover {
-    border-color: #58a6ff !important;
-    background: #1c2128 !important;
-}
 
 body.dark-mode .sun {
     opacity: 0;
