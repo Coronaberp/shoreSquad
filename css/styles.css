@@ -36,14 +36,15 @@ body {
 
 /* Hero Section with Beach Theme */
 .hero-section {
-    background: linear-gradient(rgba(0, 119, 182, 0.1), rgba(0, 180, 216, 0.1)), 
-                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000') center/cover no-repeat;
+    background: linear-gradient(rgba(30, 136, 229, 0.15), rgba(0, 180, 216, 0.15)), 
+                url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2000') center/cover no-repeat fixed;
+    background-size: cover;
+    background-position: center center;
     min-height: 500px;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(0);
 }
 
 /* Animated waves */
@@ -87,13 +88,13 @@ body {
 
 /* Glassmorphism card for hero content */
 .hero-glass-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 30px;
     padding: 3rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     animation: fadeIn 1s ease-out;
 }
 
