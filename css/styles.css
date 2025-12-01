@@ -1255,42 +1255,164 @@ body.dark-mode div {
     border-color: #999;
 }
 
-/* Chaos Mode Active Styles */
+/* Chaos Mode - Psychedelic Theme */
 body.chaos-mode {
-    animation: rainbow-bg 5s linear infinite;
+    background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ff0080, #9370db, #ff1493) !important;
+    background-size: 400% 400% !important;
+    animation: psychedelic-gradient 8s ease infinite !important;
 }
 
-@keyframes rainbow-bg {
-    0% { background-color: #ff0000; }
-    17% { background-color: #ff7700; }
-    33% { background-color: #ffff00; }
-    50% { background-color: #00ff00; }
-    67% { background-color: #0000ff; }
-    83% { background-color: #9900ff; }
-    100% { background-color: #ff0000; }
-}
-
-body.chaos-mode * {
-    animation: chaotic-spin 3s linear infinite, chaotic-color 2s linear infinite !important;
-}
-
-@keyframes chaotic-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes chaotic-color {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+@keyframes psychedelic-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 body.chaos-mode .navbar {
-    animation: navbar-chaos 1s ease-in-out infinite;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 3px solid #ff0080;
+    animation: rainbow-border 3s linear infinite;
 }
 
-@keyframes navbar-chaos {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+@keyframes rainbow-border {
+    0% { border-bottom-color: #ff0080; }
+    16% { border-bottom-color: #ff8c00; }
+    33% { border-bottom-color: #ffd700; }
+    50% { border-bottom-color: #40e0d0; }
+    66% { border-bottom-color: #9370db; }
+    83% { border-bottom-color: #ff1493; }
+    100% { border-bottom-color: #ff0080; }
+}
+
+body.chaos-mode .navbar-brand,
+body.chaos-mode .nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #ff0080, 0 0 20px #40e0d0;
+    animation: text-glow 2s ease-in-out infinite;
+}
+
+@keyframes text-glow {
+    0%, 100% {
+        text-shadow: 0 0 10px #ff0080, 0 0 20px #40e0d0;
+    }
+    50% {
+        text-shadow: 0 0 20px #40e0d0, 0 0 30px #ff0080, 0 0 40px #ffd700;
+    }
+}
+
+body.chaos-mode .stat-card,
+body.chaos-mode .cleanup-card,
+body.chaos-mode .weather-card,
+body.chaos-mode .crew-card {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid !important;
+    border-image: linear-gradient(45deg, #ff0080, #40e0d0, #ffd700, #ff0080) 1 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.5), 0 0 40px rgba(64, 224, 208, 0.3) !important;
+    animation: card-pulse 3s ease-in-out infinite;
+}
+
+@keyframes card-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.5), 0 0 40px rgba(64, 224, 208, 0.3);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 0, 128, 0.7), 0 0 60px rgba(64, 224, 208, 0.5);
+    }
+}
+
+body.chaos-mode h1,
+body.chaos-mode h2,
+body.chaos-mode h3,
+body.chaos-mode h4,
+body.chaos-mode h5,
+body.chaos-mode h6 {
+    background: linear-gradient(45deg, #ff0080, #40e0d0, #ffd700, #9370db);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-text 3s ease infinite;
+}
+
+@keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.chaos-mode .hero-header {
+    background: linear-gradient(135deg, #1a0033, #330066, #660099, #990099) !important;
+    background-size: 400% 400%;
+    animation: psychedelic-gradient 8s ease infinite;
+}
+
+body.chaos-mode .hero-title,
+body.chaos-mode .hero-subtitle {
+    background: linear-gradient(90deg, #ff0080, #40e0d0, #ffd700, #ff0080);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-text 3s linear infinite;
+}
+
+body.chaos-mode .btn,
+body.chaos-mode .hero-btn {
+    background: linear-gradient(45deg, #ff0080, #ff8c00, #ffd700) !important;
+    border: none !important;
+    color: #000000 !important;
+    font-weight: 700;
+    text-shadow: none;
+    animation: button-shimmer 2s linear infinite;
+}
+
+@keyframes button-shimmer {
+    0% { filter: brightness(1) hue-rotate(0deg); }
+    100% { filter: brightness(1.2) hue-rotate(360deg); }
+}
+
+body.chaos-mode .badge {
+    background: linear-gradient(45deg, #ff0080, #40e0d0) !important;
+    color: #ffffff !important;
+    border: none;
+    animation: badge-glow 2s ease-in-out infinite;
+}
+
+@keyframes badge-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px #ff0080;
+    }
+    50% {
+        box-shadow: 0 0 20px #40e0d0, 0 0 30px #ff0080;
+    }
+}
+
+body.chaos-mode footer {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-top: 3px solid #ff0080;
+}
+
+body.chaos-mode .hero-particles .particle {
+    background: #ff0080;
+    box-shadow: 0 0 10px #ff0080, 0 0 20px #40e0d0;
+    animation: particle-chaos 4s ease-in-out infinite;
+}
+
+@keyframes particle-chaos {
+    0%, 100% {
+        background: #ff0080;
+        box-shadow: 0 0 10px #ff0080;
+    }
+    33% {
+        background: #40e0d0;
+        box-shadow: 0 0 10px #40e0d0;
+    }
+    66% {
+        background: #ffd700;
+        box-shadow: 0 0 10px #ffd700;
+    }
 }
 
 @keyframes chaosAppear {
