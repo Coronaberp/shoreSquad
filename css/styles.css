@@ -166,6 +166,19 @@ html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Weather Cards */
+.weather-card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.weather-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
 /* Comment list styling */
 .comment-item {
     background: white;

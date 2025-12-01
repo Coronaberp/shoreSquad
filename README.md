@@ -8,7 +8,7 @@ ShoreSquad is a web application that mobilizes young people to clean beaches usi
 
 ## Features
 
-- 📊 **Impact Stats**: View total pounds collected, beaches cleaned, and squad members
+- 📊 **Impact Stats**: View total kilograms collected, beaches cleaned, and squad members
 - 🗓️ **Upcoming Events**: Browse and join beach cleanup events
 - 🗺️ **Interactive Maps**: See cleanup locations with Google Maps integration
 - ☀️ **Weather Integration**: Check weather conditions for planning cleanups

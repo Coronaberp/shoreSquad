@@ -1,55 +1,103 @@
 // ShoreSquad JavaScript - Enhanced with Bootstrap 5
 console.log('🌊 Welcome to ShoreSquad!');
 
-// Weather Integration
-async function fetchWeather() {
+// Weather Integration using NEA (Singapore) Data.gov.sg API
+async function fetchWeatherForecast() {
     const weatherInfo = document.getElementById('weather-info');
     
-    // Using a demo weather API (replace with your OpenWeatherMap API key)
-    const city = 'Singapore';
-    const apiKey = 'YOUR_API_KEY_HERE'; // Get free key from openweathermap.org
-    
-    // For demo purposes, show mock data
-    setTimeout(() => {
-        weatherInfo.innerHTML = `
-            <div class="d-flex justify-content-center align-items-center">
-                <i class="bi bi-cloud-sun fs-1 text-warning me-3"></i>
-                <div class="text-start">
-                    <h4 class="mb-1">Sunny & Clear</h4>
-                    <p class="mb-0 text-muted">Perfect beach cleanup weather!</p>
-                    <p class="mb-0"><strong>28°C</strong> | Wind: 10 km/h</p>
-                </div>
-            </div>
-        `;
-    }, 1000);
-    
-    // Uncomment below to use real API
-    /*
     try {
-        const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-        );
-        const weather = response.data;
-        weatherInfo.innerHTML = `
-            <div class="d-flex justify-content-center align-items-center">
-                <i class="bi bi-cloud-sun fs-1 text-warning me-3"></i>
-                <div class="text-start">
-                    <h4 class="mb-1">${weather.weather[0].main}</h4>
-                    <p class="mb-0 text-muted">${weather.weather[0].description}</p>
-                    <p class="mb-0"><strong>${Math.round(weather.main.temp)}°C</strong> | Wind: ${weather.wind.speed} km/h</p>
+        weatherInfo.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Loading weather forecast...</p></div>';
+        
+        // Fetch 4-day weather forecast from Singapore NEA API
+        const response = await axios.get('https://api.data.gov.sg/v1/environment/4-day-weather-forecast');
+        const forecast = response.data.items[0].forecasts;
+        
+        // Get current temperature from another endpoint
+        const tempResponse = await axios.get('https://api.data.gov.sg/v1/environment/air-temperature');
+        const currentTemp = tempResponse.data.items[0].readings[0].value;
+        
+        // Create weather forecast cards
+        let forecastHTML = '<div class="row g-3">';
+        
+        forecast.slice(0, 4).forEach((day, index) => {
+            const date = new Date(day.date);
+            const dayName = index === 0 ? 'Today' : date.toLocaleDateString('en-SG', { weekday: 'short' });
+            const dateStr = date.toLocaleDateString('en-SG', { month: 'short', day: 'numeric' });
+            
+            // Map forecast to weather icons
+            const weatherIcon = getWeatherIcon(day.forecast);
+            
+            forecastHTML += `
+                <div class="col-md-3 col-6">
+                    <div class="card weather-card h-100">
+                        <div class="card-body text-center p-3">
+                            <h6 class="fw-bold mb-1">${dayName}</h6>
+                            <p class="text-muted small mb-2">${dateStr}</p>
+                            <i class="bi ${weatherIcon} fs-1 text-primary mb-2"></i>
+                            <p class="small mb-2">${day.forecast}</p>
+                            <div class="d-flex justify-content-center gap-2 small">
+                                <span class="text-danger fw-bold">${day.temperature.high}°C</span>
+                                <span class="text-muted">${day.temperature.low}°C</span>
+                            </div>
+                            <p class="small text-muted mb-0 mt-2">
+                                <i class="bi bi-droplet"></i> ${day.relative_humidity.high}%
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        forecastHTML += '</div>';
+        
+        // Add current conditions header
+        const currentConditions = `
+            <div class="alert alert-info mb-4">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="bi bi-thermometer-half fs-4 me-3"></i>
+                    <div>
+                        <strong>Current Temperature:</strong> ${currentTemp}°C
+                        <span class="ms-3 text-muted">Singapore</span>
+                    </div>
                 </div>
             </div>
         `;
+        
+        weatherInfo.innerHTML = currentConditions + forecastHTML;
+        
     } catch (error) {
-        console.error('Error fetching weather:', error);
-        weatherInfo.innerHTML = '<p class="text-danger">Unable to load weather data</p>';
+        console.error('Error fetching weather data:', error);
+        weatherInfo.innerHTML = `
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> 
+                Unable to load weather forecast. Please try again later.
+            </div>
+        `;
     }
-    */
+}
+
+// Helper function to map forecast text to Bootstrap icons
+function getWeatherIcon(forecast) {
+    const lowerForecast = forecast.toLowerCase();
+    
+    if (lowerForecast.includes('thunder') || lowerForecast.includes('storm')) {
+        return 'bi-cloud-lightning-rain';
+    } else if (lowerForecast.includes('rain') || lowerForecast.includes('showers')) {
+        return 'bi-cloud-rain';
+    } else if (lowerForecast.includes('cloudy') || lowerForecast.includes('overcast')) {
+        return 'bi-cloudy';
+    } else if (lowerForecast.includes('partly cloudy') || lowerForecast.includes('fair')) {
+        return 'bi-cloud-sun';
+    } else if (lowerForecast.includes('hazy') || lowerForecast.includes('haze')) {
+        return 'bi-cloud-haze';
+    } else {
+        return 'bi-sun';
+    }
 }
 
 // Initialize weather on page load
 document.addEventListener('DOMContentLoaded', () => {
-    fetchWeather();
+    fetchWeatherForecast();
 });
 
 // User authentication and profiles
