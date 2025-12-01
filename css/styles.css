@@ -750,6 +750,195 @@ body.dark-mode .theme-toggle {
     border-color: #0f3460;
 }
 
+/* Chaos Toggle Button */
+.chaos-toggle {
+    background: linear-gradient(135deg, #ff0000, #ff6600, #ffff00);
+    border: 2px solid #ff0000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse-warning 2s infinite;
+}
+
+.chaos-toggle i {
+    color: #000;
+    font-size: 1.2rem;
+    animation: shake 0.5s infinite;
+}
+
+.chaos-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+@keyframes pulse-warning {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Chaos Mode Warning Modal */
+.chaos-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.chaos-modal.active {
+    display: flex;
+}
+
+.chaos-modal-content {
+    background: linear-gradient(135deg, #1a1a1a, #2d0000);
+    border: 3px solid #ff0000;
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 500px;
+    text-align: center;
+    animation: modalAppear 0.5s ease-out;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes modalAppear {
+    from {
+        transform: scale(0.5) rotate(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.chaos-modal h2 {
+    color: #ff0000;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.chaos-modal .warning-text {
+    color: #ffff00;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.chaos-modal .warning-list {
+    color: #ff6600;
+    text-align: left;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.chaos-modal .warning-list li {
+    margin: 0.5rem 0;
+}
+
+.chaos-modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.chaos-confirm {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chaos-confirm:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+}
+
+.chaos-cancel {
+    background: #333;
+    color: white;
+    border: 2px solid #666;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chaos-cancel:hover {
+    background: #555;
+    border-color: #999;
+}
+
+/* Chaos Mode Active Styles */
+body.chaos-mode {
+    animation: rainbow-bg 5s linear infinite;
+}
+
+@keyframes rainbow-bg {
+    0% { background-color: #ff0000; }
+    17% { background-color: #ff7700; }
+    33% { background-color: #ffff00; }
+    50% { background-color: #00ff00; }
+    67% { background-color: #0000ff; }
+    83% { background-color: #9900ff; }
+    100% { background-color: #ff0000; }
+}
+
+body.chaos-mode * {
+    animation: chaotic-spin 3s linear infinite, chaotic-color 2s linear infinite !important;
+}
+
+@keyframes chaotic-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes chaotic-color {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+body.chaos-mode .navbar {
+    animation: navbar-chaos 1s ease-in-out infinite;
+}
+
+@keyframes navbar-chaos {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section h1 {

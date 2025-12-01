@@ -48,6 +48,11 @@
                             </div>
                         </button>
                     </li>
+                    <li class="nav-item">
+                        <button class="chaos-toggle" id="chaosToggle" aria-label="Chaos mode" title="Click at your own risk...">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -433,6 +438,28 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Chaos Mode Warning Modal -->
+    <div class="chaos-modal" id="chaosModal">
+        <div class="chaos-modal-content">
+            <h2>⚠️ WARNING ⚠️</h2>
+            <p class="warning-text">YOU ARE ABOUT TO ENTER CHAOS MODE</p>
+            <p style="color: #ff0000; font-weight: 700;">This will cause ABSOLUTE MAYHEM!</p>
+            <ul class="warning-list">
+                <li>🌀 Everything will spin uncontrollably</li>
+                <li>🌈 Colors will go INSANE</li>
+                <li>💥 Animations will be EVERYWHERE</li>
+                <li>🤯 Your eyes might hurt</li>
+                <li>⚡ Performance may suffer</li>
+                <li>😵 Confusion is GUARANTEED</li>
+            </ul>
+            <p style="color: #ffff00; margin-top: 1rem;">Are you ABSOLUTELY sure you want to proceed?</p>
+            <div class="chaos-modal-buttons">
+                <button class="chaos-cancel" id="chaosCancel">NO, GET ME OUT!</button>
+                <button class="chaos-confirm" id="chaosConfirm">YES, UNLEASH CHAOS! 💀</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">

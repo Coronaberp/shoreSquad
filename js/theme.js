@@ -23,4 +23,60 @@ document.addEventListener('DOMContentLoaded', () => {
             themeToggle.style.transform = 'rotate(0deg)';
         }, 500);
     });
+    
+    // Chaos Mode Toggle Functionality
+    const chaosToggle = document.getElementById('chaosToggle');
+    const chaosModal = document.getElementById('chaosModal');
+    const chaosConfirm = document.getElementById('chaosConfirm');
+    const chaosCancel = document.getElementById('chaosCancel');
+    let chaosActive = false;
+    
+    // Show warning modal
+    chaosToggle.addEventListener('click', () => {
+        if (chaosActive) {
+            // Turn off chaos mode
+            body.classList.remove('chaos-mode');
+            chaosActive = false;
+            chaosToggle.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i>';
+            chaosToggle.title = 'Click at your own risk...';
+        } else {
+            // Show warning modal
+            chaosModal.classList.add('active');
+        }
+    });
+    
+    // Confirm chaos mode
+    chaosConfirm.addEventListener('click', () => {
+        chaosModal.classList.remove('active');
+        body.classList.add('chaos-mode');
+        chaosActive = true;
+        chaosToggle.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
+        chaosToggle.title = 'Click to end the chaos!';
+        
+        // Play warning sound effect (optional)
+        console.log('🌪️ CHAOS MODE ACTIVATED! 🌪️');
+        
+        // Auto-disable after 10 seconds if user doesn't manually disable
+        setTimeout(() => {
+            if (chaosActive) {
+                body.classList.remove('chaos-mode');
+                chaosActive = false;
+                chaosToggle.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i>';
+                chaosToggle.title = 'Click at your own risk...';
+                alert('Chaos mode auto-disabled for your safety! 😅');
+            }
+        }, 10000);
+    });
+    
+    // Cancel chaos mode
+    chaosCancel.addEventListener('click', () => {
+        chaosModal.classList.remove('active');
+    });
+    
+    // Close modal on outside click
+    chaosModal.addEventListener('click', (e) => {
+        if (e.target === chaosModal) {
+            chaosModal.classList.remove('active');
+        }
+    });
 });
