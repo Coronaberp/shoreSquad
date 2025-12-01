@@ -30,6 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const chaosConfirm = document.getElementById('chaosConfirm');
     const chaosCancel = document.getElementById('chaosCancel');
     let chaosActive = false;
+    let chaosRevealed = false;
+    
+    // Listen for 'c' key to reveal chaos button
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'c' && !chaosRevealed) {
+            chaosToggle.classList.remove('hidden');
+            chaosRevealed = true;
+            
+            // Add entrance animation
+            chaosToggle.style.animation = 'chaosAppear 0.5s ease-out';
+            console.log('🌪️ Chaos button revealed! Press at your own risk... 🌪️');
+        }
+    });
     
     // Show warning modal
     chaosToggle.addEventListener('click', () => {

@@ -49,7 +49,7 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button class="chaos-toggle" id="chaosToggle" aria-label="Chaos mode" title="Click at your own risk...">
+                        <button class="chaos-toggle hidden" id="chaosToggle" aria-label="Chaos mode" title="Click at your own risk...">
                             <i class="bi bi-exclamation-triangle-fill"></i>
                         </button>
                     </li>
@@ -58,29 +58,60 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section bg-gradient py-5">
-        <!-- Floating particles -->
-        <div class="particle" style="width: 8px; height: 8px; top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="width: 6px; height: 6px; top: 40%; left: 20%; animation-delay: 1s;"></div>
-        <div class="particle" style="width: 10px; height: 10px; top: 60%; left: 80%; animation-delay: 2s;"></div>
-        <div class="particle" style="width: 7px; height: 7px; top: 30%; left: 70%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="width: 9px; height: 9px; top: 50%; left: 90%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="width: 5px; height: 5px; top: 70%; left: 30%; animation-delay: 2.5s;"></div>
-        
-        <div class="container text-center py-5">
-            <div class="hero-glass-card">
-                <h1 class="display-3 fw-bold text-black mb-3">🌊 Rally Your Crew</h1>
-                <p class="lead text-black mb-4 fs-4">Track weather, and hit the next beach cleanup with our dope map app!</p>
-                <div class="hero-cta">
-                    <a href="#events" class="btn btn-light btn-lg me-3 animate-btn">
-                        <i class="bi bi-calendar-event"></i> View Events
+    <!-- Hero Header Section -->
+    <section id="home" class="hero-header">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="brand-logo">
+                    <i class="bi bi-water"></i>
+                    <span>ShoreSquad</span>
+                </div>
+                <h1 class="hero-title">Rally your crew for the next beach cleanup</h1>
+                <p class="hero-subtitle">Track weather, find locations, and make eco-action fun and connected with our dope map app!</p>
+                <div class="hero-buttons">
+                    <a href="#events" class="hero-btn primary">
+                        <i class="bi bi-calendar-event"></i>
+                        View Events
                     </a>
-                    <a href="#crew" class="btn btn-light btn-lg me-3 animate-btn">
-                        <i class="bi bi-people"></i> Join Squad
+                    <a href="#crew" class="hero-btn secondary">
+                        <i class="bi bi-people"></i>
+                        Join the Crew
                     </a>
                 </div>
             </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="card-header">
+                        <i class="bi bi-water"></i>
+                        <span>ShoreSquad</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-item">
+                            <span class="stat-value">1,134</span>
+                            <span class="stat-label">kg cleaned</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">45</span>
+                            <span class="stat-label">beaches</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">350</span>
+                            <span class="stat-label">squad members</span>
+                        </div>
+                    </div>
+                    <div class="floating-dots"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
     </section>
 
