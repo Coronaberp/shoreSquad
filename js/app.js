@@ -194,67 +194,8 @@ function loginUser(username, password) {
 registerUser('testUser', 'password123');
 loginUser('testUser', 'password123');
 
-// Comment Section Functionality
-const comments = [];
-
-function addComment(username, commentText) {
-    const comment = { 
-        username, 
-        text: commentText, 
-        timestamp: new Date(),
-        avatar: `https://i.pravatar.cc/50?u=${username}`
-    };
-    comments.push(comment);
-    displayComments();
-}
-
-function displayComments() {
-    const commentList = document.getElementById('comment-list');
-    commentList.innerHTML = comments.map(comment => `
-        <div class="comment-item">
-            <div class="d-flex">
-                <img src="${comment.avatar}" class="rounded-circle me-3" width="50" height="50" alt="${comment.username}">
-                <div class="flex-grow-1">
-                    <h6 class="mb-1 fw-bold">${comment.username}</h6>
-                    <p class="mb-1">${comment.text}</p>
-                    <small class="text-muted">
-                        <i class="bi bi-clock"></i> ${comment.timestamp.toLocaleString()}
-                    </small>
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Comment form handling
-document.addEventListener('DOMContentLoaded', () => {
-    const commentForm = document.getElementById('comment-form');
-    if (commentForm) {
-        commentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const commentText = document.getElementById('comment-text').value;
-            
-            if (username && commentText) {
-                addComment(username, commentText);
-                commentForm.reset();
-                
-                // Show success toast
-                const toast = document.createElement('div');
-                toast.className = 'alert alert-success position-fixed top-0 end-0 m-3';
-                toast.style.zIndex = '9999';
-                toast.innerHTML = '<i class="bi bi-check-circle"></i> Comment posted successfully!';
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 3000);
-            }
-        });
-    }
-    
-    // Add sample comments with diverse Singapore names
-    addComment('Wei Ting Tan', 'Super excited for the Pasir Ris cleanup! See you all there! 🌊');
-    addComment('Raj Kumar', 'This is my first cleanup event. Any tips for beginners?');
-    addComment('Nurul Aisyah', 'Great initiative! Let\'s keep our beaches clean 💚');
-});
+// My Crew Section - No additional JavaScript needed as it's static HTML
+// Future enhancements could include crew member management functionality
 
 // Optimize performance with lazy loading and debouncing
 

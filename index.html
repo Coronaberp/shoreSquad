@@ -45,9 +45,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section bg-gradient py-5">
+        <!-- Floating particles -->
+        <div class="particle" style="width: 8px; height: 8px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 6px; height: 6px; top: 40%; left: 20%; animation-delay: 1s;"></div>
+        <div class="particle" style="width: 10px; height: 10px; top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 7px; height: 7px; top: 30%; left: 70%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="width: 9px; height: 9px; top: 50%; left: 90%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="width: 5px; height: 5px; top: 70%; left: 30%; animation-delay: 2.5s;"></div>
+        
         <div class="container text-center py-5">
-            <h1 class="display-4 fw-bold text-white mb-3">Rally Your Crew</h1>
-            <p class="lead text-white mb-4">Track weather, and hit the next beach cleanup with our dope map app!</p>
+            <h1 class="display-3 fw-bold text-white mb-3">🌊 Rally Your Crew</h1>
+            <p class="lead text-white mb-4 fs-4">Track weather, and hit the next beach cleanup with our dope map app!</p>
+            <div class="hero-cta">
+                <a href="#events" class="btn btn-light btn-lg me-3 animate-btn">
+                    <i class="bi bi-calendar-event"></i> View Events
+                </a>
+                <a href="#crew" class="btn btn-outline-light btn-lg animate-btn">
+                    <i class="bi bi-people"></i> Join Squad
+                </a>
+            </div>
         </div>
     </section>
 
@@ -224,30 +240,151 @@
         </div>
     </section>
 
-    <!-- Comments Section -->
-    <section id="crew" class="py-5">
+    <!-- My Crew Section -->
+    <section id="crew" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold">Community Comments</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card shadow-sm mb-4">
-                        <div class="card-body">
-                            <form id="comment-form">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Your Name</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Enter your name" required>
+            <h2 class="text-center mb-5 fw-bold">My Crew</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="crew-container">
+                        <div class="row g-4">
+                            <!-- Leader Card -->
+                            <div class="col-md-4">
+                                <div class="crew-card leader-card">
+                                    <div class="leader-badge">
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>Leader</span>
+                                    </div>
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=asian&t=leader" class="crew-avatar" alt="Crew Leader">
+                                        <div class="crew-status online"></div>
+                                    </div>
+                                    <h5 class="crew-name">Wei Ting Tan</h5>
+                                    <p class="crew-role">Squad Leader</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>128 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>15 events</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="comment-text" class="form-label">Your Comment</label>
-                                    <textarea class="form-control" id="comment-text" rows="3" placeholder="Share your thoughts..." required></textarea>
+                            </div>
+                            
+                            <!-- Member Card 1 -->
+                            <div class="col-md-4">
+                                <div class="crew-card">
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=indian&t=member1" class="crew-avatar" alt="Crew Member">
+                                        <div class="crew-status online"></div>
+                                    </div>
+                                    <h5 class="crew-name">Raj Kumar</h5>
+                                    <p class="crew-role">Active Member</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>95 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>12 events</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-send"></i> Post Comment
-                                </button>
-                            </form>
+                            </div>
+                            
+                            <!-- Member Card 2 -->
+                            <div class="col-md-4">
+                                <div class="crew-card">
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=malay&t=member2" class="crew-avatar" alt="Crew Member">
+                                        <div class="crew-status offline"></div>
+                                    </div>
+                                    <h5 class="crew-name">Nurul Aisyah</h5>
+                                    <p class="crew-role">Active Member</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>87 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>10 events</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Member Card 3 -->
+                            <div class="col-md-4">
+                                <div class="crew-card">
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=asian&t=member3" class="crew-avatar" alt="Crew Member">
+                                        <div class="crew-status online"></div>
+                                    </div>
+                                    <h5 class="crew-name">Marcus Lim</h5>
+                                    <p class="crew-role">New Member</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>45 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>5 events</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Member Card 4 -->
+                            <div class="col-md-4">
+                                <div class="crew-card">
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=indian&t=member4" class="crew-avatar" alt="Crew Member">
+                                        <div class="crew-status online"></div>
+                                    </div>
+                                    <h5 class="crew-name">Priya Sharma</h5>
+                                    <p class="crew-role">Active Member</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>72 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>8 events</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Member Card 5 -->
+                            <div class="col-md-4">
+                                <div class="crew-card">
+                                    <div class="crew-avatar-container">
+                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=malay&t=member5" class="crew-avatar" alt="Crew Member">
+                                        <div class="crew-status offline"></div>
+                                    </div>
+                                    <h5 class="crew-name">Faizal Ahmad</h5>
+                                    <p class="crew-role">Active Member</p>
+                                    <div class="crew-stats">
+                                        <div class="stat-item">
+                                            <i class="bi bi-trash"></i>
+                                            <span>63 kg</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="bi bi-calendar-check"></i>
+                                            <span>9 events</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="comment-list"></div>
                 </div>
             </div>
         </div>
