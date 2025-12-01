@@ -35,7 +35,32 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?q=80&w=2000') center/cover no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 136, 229, 0.7) 0%, rgba(0, 180, 216, 0.6) 100%);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1,
+.hero-section p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Stat Cards */
