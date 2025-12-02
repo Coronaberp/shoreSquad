@@ -22,14 +22,49 @@
 
     <!-- Theme Controls -->
     <div class="account-theme-controls">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <div class="theme-toggle-beach">
-                <div class="beach-ground"></div>
-                <div class="beach-water"></div>
-                <div class="celestial-body sun"></div>
-                <div class="celestial-body moon"></div>
+        <div class="coffee-theme-selector">
+            <button class="coffee-cup-btn" id="coffeeThemeBtn" aria-label="Select theme">
+                <div class="coffee-cup">
+                    <div class="cup-body">
+                        <div class="coffee-liquid" id="coffeeLiquid"></div>
+                        <div class="coffee-steam">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="cup-handle"></div>
+                </div>
+            </button>
+            <div class="coffee-menu" id="coffeeMenu">
+                <div class="coffee-menu-header">☕ Select Your Brew</div>
+                <button class="coffee-option" data-theme="light">
+                    <span class="coffee-swatch latte"></span>
+                    <span class="coffee-name">Vanilla Latte</span>
+                    <span class="coffee-desc">Light & creamy</span>
+                </button>
+                <button class="coffee-option" data-theme="dark">
+                    <span class="coffee-swatch espresso"></span>
+                    <span class="coffee-name">Espresso</span>
+                    <span class="coffee-desc">Bold & dark</span>
+                </button>
+                <button class="coffee-option" data-theme="mocha">
+                    <span class="coffee-swatch mocha"></span>
+                    <span class="coffee-name">Mocha</span>
+                    <span class="coffee-desc">Chocolate bliss</span>
+                </button>
+                <button class="coffee-option" data-theme="caramel">
+                    <span class="coffee-swatch caramel"></span>
+                    <span class="coffee-name">Caramel Macchiato</span>
+                    <span class="coffee-desc">Sweet & warm</span>
+                </button>
+                <button class="coffee-option" data-theme="matcha">
+                    <span class="coffee-swatch matcha"></span>
+                    <span class="coffee-name">Matcha Latte</span>
+                    <span class="coffee-desc">Zen & refreshing</span>
+                </button>
             </div>
-        </button>
+        </div>
         <button class="chaos-circle" id="chaosCircle" aria-label="Psychedelic chaos" title="Just vibes..." style="display: none;">
             <div class="chaos-circle-inner"></div>
         </button>
@@ -45,7 +80,7 @@
                         <div class="profile-banner"></div>
                         <div class="profile-info">
                             <div class="profile-avatar-large">
-                                <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=asian&t=leader" alt="Profile">
+                                <img src="https://i.pravatar.cc/150?img=47" alt="Profile">
                                 <button class="avatar-edit-btn">
                                     <i class="bi bi-camera"></i>
                                 </button>

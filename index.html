@@ -39,14 +39,49 @@
                         <a class="nav-link" href="#crew">My Crew</a>
                     </li>
                     <li class="nav-item">
-                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                            <div class="theme-toggle-beach">
-                                <div class="beach-ground"></div>
-                                <div class="beach-water"></div>
-                                <div class="celestial-body sun"></div>
-                                <div class="celestial-body moon"></div>
+                        <div class="coffee-theme-selector">
+                            <button class="coffee-cup-btn" id="coffeeThemeBtn" aria-label="Select theme">
+                                <div class="coffee-cup">
+                                    <div class="cup-body">
+                                        <div class="coffee-liquid" id="coffeeLiquid"></div>
+                                        <div class="coffee-steam">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="cup-handle"></div>
+                                </div>
+                            </button>
+                            <div class="coffee-menu" id="coffeeMenu">
+                                <div class="coffee-menu-header">☕ Select Your Brew</div>
+                                <button class="coffee-option" data-theme="light">
+                                    <span class="coffee-swatch latte"></span>
+                                    <span class="coffee-name">Vanilla Latte</span>
+                                    <span class="coffee-desc">Light & creamy</span>
+                                </button>
+                                <button class="coffee-option" data-theme="dark">
+                                    <span class="coffee-swatch espresso"></span>
+                                    <span class="coffee-name">Espresso</span>
+                                    <span class="coffee-desc">Bold & dark</span>
+                                </button>
+                                <button class="coffee-option" data-theme="mocha">
+                                    <span class="coffee-swatch mocha"></span>
+                                    <span class="coffee-name">Mocha</span>
+                                    <span class="coffee-desc">Chocolate bliss</span>
+                                </button>
+                                <button class="coffee-option" data-theme="caramel">
+                                    <span class="coffee-swatch caramel"></span>
+                                    <span class="coffee-name">Caramel Macchiato</span>
+                                    <span class="coffee-desc">Sweet & warm</span>
+                                </button>
+                                <button class="coffee-option" data-theme="matcha">
+                                    <span class="coffee-swatch matcha"></span>
+                                    <span class="coffee-name">Matcha Latte</span>
+                                    <span class="coffee-desc">Zen & refreshing</span>
+                                </button>
                             </div>
-                        </button>
+                        </div>
                         <button class="chaos-circle" id="chaosCircle" aria-label="Psychedelic chaos" title="Just vibes..." style="display: none;">
                             <div class="chaos-circle-inner"></div>
                         </button>
@@ -164,9 +199,9 @@
                             </p>
                             <div class="mb-3">
                                 <div class="d-flex mb-2">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=asian" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=indian" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=malay" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=47" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=51" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=48" class="rounded-circle me-1" width="32" height="32" alt="Member">
                                     <span class="badge bg-secondary align-self-center">+9</span>
                                 </div>
                                 <small class="text-muted">12 squad members</small>
@@ -195,9 +230,9 @@
                             </p>
                             <div class="mb-3">
                                 <div class="d-flex mb-2">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=asian&t=1" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=indian&t=2" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=malay&t=3" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=52" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=49" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=59" class="rounded-circle me-1" width="32" height="32" alt="Member">
                                     <span class="badge bg-secondary align-self-center">+5</span>
                                 </div>
                                 <small class="text-muted">8 squad members</small>
@@ -226,9 +261,9 @@
                             </p>
                             <div class="mb-3">
                                 <div class="d-flex mb-2">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=malay&t=4" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=asian&t=5" class="rounded-circle me-1" width="32" height="32" alt="Member">
-                                    <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=indian&t=6" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=38" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=60" class="rounded-circle me-1" width="32" height="32" alt="Member">
+                                    <img src="https://i.pravatar.cc/32?img=41" class="rounded-circle me-1" width="32" height="32" alt="Member">
                                     <span class="badge bg-secondary align-self-center">+12</span>
                                 </div>
                                 <small class="text-muted">15 squad members</small>
@@ -340,7 +375,7 @@
                                         <span>Me</span>
                                     </div>
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=asian&t=leader" class="crew-avatar" alt="Crew Leader">
+                                        <img src="https://i.pravatar.cc/120?img=47" class="crew-avatar" alt="Crew Leader">
                                         <div class="crew-status online"></div>
                                     </div>
                                     <h5 class="crew-name">Wei Ting Tan</h5>
@@ -362,7 +397,7 @@
                             <div class="col-md-4">
                                 <div class="crew-card">
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=indian&t=member1" class="crew-avatar" alt="Crew Member">
+                                        <img src="https://i.pravatar.cc/120?img=51" class="crew-avatar" alt="Crew Member">
                                         <div class="crew-status online"></div>
                                     </div>
                                     <h5 class="crew-name">Raj Kumar</h5>
@@ -384,7 +419,7 @@
                             <div class="col-md-4">
                                 <div class="crew-card">
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=malay&t=member2" class="crew-avatar" alt="Crew Member">
+                                        <img src="https://i.pravatar.cc/120?img=48" class="crew-avatar" alt="Crew Member">
                                         <div class="crew-status offline"></div>
                                     </div>
                                     <h5 class="crew-name">Nurul Aisyah</h5>
@@ -406,7 +441,7 @@
                             <div class="col-md-4">
                                 <div class="crew-card">
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=asian&t=member3" class="crew-avatar" alt="Crew Member">
+                                        <img src="https://i.pravatar.cc/120?img=52" class="crew-avatar" alt="Crew Member">
                                         <div class="crew-status online"></div>
                                     </div>
                                     <h5 class="crew-name">Marcus Lim</h5>
@@ -428,7 +463,7 @@
                             <div class="col-md-4">
                                 <div class="crew-card">
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=female&ethnicity=indian&t=member4" class="crew-avatar" alt="Crew Member">
+                                        <img src="https://i.pravatar.cc/120?img=49" class="crew-avatar" alt="Crew Member">
                                         <div class="crew-status online"></div>
                                     </div>
                                     <h5 class="crew-name">Priya Sharma</h5>
@@ -450,7 +485,7 @@
                             <div class="col-md-4">
                                 <div class="crew-card">
                                     <div class="crew-avatar-container">
-                                        <img src="https://xsgames.co/randomusers/avatar.php?g=male&ethnicity=malay&t=member5" class="crew-avatar" alt="Crew Member">
+                                        <img src="https://i.pravatar.cc/120?img=60" class="crew-avatar" alt="Crew Member">
                                         <div class="crew-status offline"></div>
                                     </div>
                                     <h5 class="crew-name">Faizal Ahmad</h5>

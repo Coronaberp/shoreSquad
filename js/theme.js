@@ -1,34 +1,85 @@
-// Dark Mode Toggle Functionality
+// Coffee Theme Selector Functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('themeToggle');
+    const coffeeBtn = document.getElementById('coffeeThemeBtn');
+    const coffeeMenu = document.getElementById('coffeeMenu');
+    const coffeeLiquid = document.getElementById('coffeeLiquid');
+    const coffeeOptions = document.querySelectorAll('.coffee-option');
     const body = document.body;
     
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
-    }
+    // Theme configurations
+    const themes = {
+        'light': { class: '', darkMode: false },
+        'dark': { class: 'dark-mode', darkMode: true },
+        'mocha': { class: '', darkMode: false },
+        'caramel': { class: '', darkMode: false },
+        'matcha': { class: '', darkMode: false }
+    };
     
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        // Save theme preference
-        const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-        
-        // Add animation class
-        themeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'rotate(0deg)';
-        }, 500);
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme, false);
+    
+    // Toggle coffee menu
+    coffeeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        coffeeMenu.classList.toggle('active');
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!coffeeMenu.contains(e.target) && !coffeeBtn.contains(e.target)) {
+            coffeeMenu.classList.remove('active');
+        }
+    });
+    
+    // Handle theme selection
+    coffeeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.dataset.theme;
+            applyTheme(theme, true);
+            coffeeMenu.classList.remove('active');
+        });
+    });
+    
+    function applyTheme(theme, animate) {
+        // Remove all theme classes and data attributes
+        body.classList.remove('dark-mode');
+        body.removeAttribute('data-theme');
+        
+        // Apply new theme using data-theme attribute only
+        body.setAttribute('data-theme', theme);
+        
+        // Animate coffee pour
+        if (animate && coffeeLiquid) {
+            coffeeLiquid.classList.remove('pouring');
+            void coffeeLiquid.offsetWidth; // Force reflow
+            coffeeLiquid.classList.add('pouring');
+            
+            // Add ripple effect to cup
+            coffeeBtn.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                coffeeBtn.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Update active state in menu
+        coffeeOptions.forEach(opt => {
+            opt.classList.remove('active');
+            if (opt.dataset.theme === theme) {
+                opt.classList.add('active');
+            }
+        });
+        
+        // Save preference
+        localStorage.setItem('theme', theme);
+    }
     
     // Chaos Mode Toggle Functionality
     let chaosActive = false;
     const chaosCircleBtn = document.getElementById('chaosCircle');
     const footerText = document.getElementById('footerText');
     const originalFooterText = footerText ? footerText.textContent : '';
+    const coffeeSelector = document.querySelector('.coffee-theme-selector');
     
     // Listen for 'c' key to toggle chaos mode
     document.addEventListener('keydown', (e) => {
@@ -37,8 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (chaosActive) {
                 body.classList.add('chaos-mode');
-                // Hide theme toggle and show chaos circle button
-                themeToggle.style.display = 'none';
+                // Hide coffee selector and show chaos circle button
+                if (coffeeSelector) {
+                    coffeeSelector.style.display = 'none';
+                }
                 if (chaosCircleBtn) {
                     chaosCircleBtn.style.display = 'flex';
                 }
@@ -50,8 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('🌈 CHAOS MODE ACTIVATED! Press C to disable 🌈');
             } else {
                 body.classList.remove('chaos-mode');
-                // Show theme toggle and hide chaos circle button
-                themeToggle.style.display = 'block';
+                // Show coffee selector and hide chaos circle button
+                if (coffeeSelector) {
+                    coffeeSelector.style.display = 'block';
+                }
                 if (chaosCircleBtn) {
                     chaosCircleBtn.style.display = 'none';
                 }

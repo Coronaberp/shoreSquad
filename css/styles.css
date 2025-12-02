@@ -1131,75 +1131,628 @@ section {
     margin-bottom: 0.25rem;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
+/* Coffee Theme Selector */
+.coffee-theme-selector {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.coffee-cup-btn {
     background: none;
-    border: 2px solid #e3f2fd;
-    border-radius: 50px;
-    width: 70px;
-    height: 35px;
+    border: none;
     cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.coffee-cup-btn:hover {
+    transform: scale(1.1);
+}
+
+.coffee-cup {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.cup-body {
+    width: 35px;
+    height: 30px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 3px 3px 10px 10px;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    margin-left: 1rem;
-    padding: 0;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    border: 2px solid #d4a574;
 }
 
-.theme-toggle:hover {
-    border-color: var(--primary-color);
-    transform: scale(1.05);
-}
-
-.theme-toggle-beach {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease;
-}
-
-.beach-ground {
+.coffee-liquid {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40%;
-    background: linear-gradient(to bottom, #d4a574 0%, #c4945f 100%);
-    border-radius: 0 0 50px 50px;
+    height: 70%;
+    background: linear-gradient(180deg, #6f4e37 0%, #4a3728 100%);
+    transition: all 0.5s ease;
+    animation: coffee-wave 2s ease-in-out infinite;
 }
 
-.beach-water {
+@keyframes coffee-wave {
+    0%, 100% { 
+        transform: translateY(0);
+        border-radius: 50% 50% 0 0 / 10px 10px 0 0;
+    }
+    50% { 
+        transform: translateY(-2px);
+        border-radius: 40% 60% 0 0 / 8px 12px 0 0;
+    }
+}
+
+.coffee-steam {
     position: absolute;
-    bottom: 40%;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+}
+
+.coffee-steam span {
+    width: 3px;
+    height: 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: steam-rise 1.5s ease-in-out infinite;
+}
+
+.coffee-steam span:nth-child(1) { animation-delay: 0s; }
+.coffee-steam span:nth-child(2) { animation-delay: 0.3s; }
+.coffee-steam span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes steam-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(5px) scaleY(0.5);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scaleY(0.5);
+    }
+}
+
+.cup-handle {
+    width: 12px;
+    height: 18px;
+    border: 3px solid #d4a574;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    margin-left: -2px;
+    margin-bottom: 5px;
+}
+
+/* Coffee Menu Dropdown */
+.coffee-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 0.5rem;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.coffee-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.coffee-menu-header {
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    color: #6f4e37;
+    border-bottom: 2px solid #f0e6dc;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.coffee-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.coffee-option::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(111, 78, 55, 0.1) 100%);
+    transition: height 0.4s ease;
+}
+
+.coffee-option:hover::before {
+    height: 100%;
+    animation: coffee-pour 0.4s ease forwards;
+}
+
+@keyframes coffee-pour {
+    0% { height: 0; opacity: 0; }
+    50% { opacity: 1; }
+    100% { height: 100%; opacity: 1; }
+}
+
+.coffee-option:hover {
+    background: #faf6f2;
+}
+
+.coffee-option.active {
+    background: #f0e6dc;
+}
+
+.coffee-option.active::after {
+    content: '✓';
+    position: absolute;
+    right: 1rem;
+    color: #6f4e37;
+    font-weight: 700;
+}
+
+.coffee-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.coffee-swatch::after {
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    height: 60%;
-    background: linear-gradient(to bottom, #87ceeb 0%, #4db8e8 100%);
-    transition: background 0.5s ease;
-}
-
-.celestial-body {
-    position: absolute;
-    width: 18px;
-    height: 18px;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
     border-radius: 50%;
-    transition: all 0.5s ease;
 }
 
-.sun {
-    background: #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    top: 5px;
-    right: 8px;
+.coffee-swatch.latte {
+    background: linear-gradient(180deg, #fff8e7 0%, #f5e6c8 50%, #e6d5b8 100%);
 }
 
-.moon {
-    background: #f0f0f0;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-    top: 5px;
-    right: 8px;
-    opacity: 0;
-    transform: translateY(-20px);
+.coffee-swatch.espresso {
+    background: linear-gradient(180deg, #2c1810 0%, #1a0f0a 50%, #0d0705 100%);
+}
+
+.coffee-swatch.mocha {
+    background: linear-gradient(180deg, #5c4033 0%, #3d2817 50%, #8b4513 100%);
+}
+
+.coffee-swatch.caramel {
+    background: linear-gradient(180deg, #d4a574 0%, #c4945f 50%, #a67c52 100%);
+}
+
+.coffee-swatch.matcha {
+    background: linear-gradient(180deg, #9dc183 0%, #7ab55c 50%, #5a8f3e 100%);
+}
+
+.coffee-name {
+    font-weight: 600;
+    color: #4a3728;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.coffee-desc {
+    font-size: 0.75rem;
+    color: #8b7355;
+    margin-left: auto;
+}
+
+/* Coffee Pour Animation on Theme Change */
+@keyframes coffee-fill {
+    0% {
+        height: 0%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        height: 70%;
+        opacity: 1;
+    }
+}
+
+.coffee-liquid.pouring {
+    animation: coffee-fill 0.8s ease forwards, coffee-wave 2s ease-in-out infinite 0.8s;
+}
+
+/* Theme-specific coffee liquid colors */
+body[data-theme="light"] .coffee-liquid,
+body:not([data-theme]) .coffee-liquid {
+    background: linear-gradient(180deg, #fff8e7 0%, #e6d5b8 100%);
+}
+
+body[data-theme="dark"] .coffee-liquid {
+    background: linear-gradient(180deg, #2c1810 0%, #0d0705 100%);
+}
+
+body[data-theme="mocha"] .coffee-liquid {
+    background: linear-gradient(180deg, #5c4033 0%, #3d2817 100%);
+}
+
+body[data-theme="caramel"] .coffee-liquid {
+    background: linear-gradient(180deg, #d4a574 0%, #a67c52 100%);
+}
+
+body[data-theme="matcha"] .coffee-liquid {
+    background: linear-gradient(180deg, #9dc183 0%, #5a8f3e 100%);
+}
+
+/* Dark mode for coffee selector */
+body.dark-mode .coffee-menu,
+body[data-theme="dark"] .coffee-menu,
+body[data-theme="mocha"] .coffee-menu {
+    background: #2d1f15;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .coffee-menu-header,
+body[data-theme="dark"] .coffee-menu-header,
+body[data-theme="mocha"] .coffee-menu-header {
+    color: #d4a574;
+    border-bottom-color: #4a3728;
+}
+
+body.dark-mode .coffee-option:hover,
+body[data-theme="dark"] .coffee-option:hover,
+body[data-theme="mocha"] .coffee-option:hover {
+    background: #3d2817;
+}
+
+body.dark-mode .coffee-option.active,
+body[data-theme="dark"] .coffee-option.active,
+body[data-theme="mocha"] .coffee-option.active {
+    background: #4a3728;
+}
+
+body.dark-mode .coffee-name,
+body[data-theme="dark"] .coffee-name,
+body[data-theme="mocha"] .coffee-name {
+    color: #f5f0e8;
+}
+
+body.dark-mode .coffee-desc,
+body[data-theme="dark"] .coffee-desc,
+body[data-theme="mocha"] .coffee-desc {
+    color: #a89078;
+}
+
+/* Mocha Theme */
+body[data-theme="mocha"] {
+    background: linear-gradient(135deg, #3d2817 0%, #5c4033 50%, #8b4513 100%) !important;
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .navbar {
+    background: rgba(61, 40, 23, 0.98) !important;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.5);
+}
+
+body[data-theme="mocha"] .navbar-brand,
+body[data-theme="mocha"] .nav-link {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .stat-card,
+body[data-theme="mocha"] .cleanup-card,
+body[data-theme="mocha"] .weather-today,
+body[data-theme="mocha"] .forecast-section,
+body[data-theme="mocha"] .crew-container,
+body[data-theme="mocha"] .crew-card,
+body[data-theme="mocha"] .weather-card {
+    background: rgba(92, 64, 51, 0.9) !important;
+    border: 1px solid rgba(139, 69, 19, 0.5) !important;
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .hero-header {
+    background: linear-gradient(135deg, #2d1f15 0%, #5c4033 50%, #8b6914 100%) !important;
+}
+
+body[data-theme="mocha"] footer {
+    background: linear-gradient(135deg, #3d2817 0%, #2d1f15 100%) !important;
+}
+
+body[data-theme="mocha"] h1,
+body[data-theme="mocha"] h2,
+body[data-theme="mocha"] h3,
+body[data-theme="mocha"] h4,
+body[data-theme="mocha"] h5,
+body[data-theme="mocha"] h6 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .text-muted,
+body[data-theme="mocha"] .card-text {
+    color: #c4a77d !important;
+}
+
+/* Caramel Theme */
+body[data-theme="caramel"] {
+    background: linear-gradient(135deg, #f5e6d3 0%, #e8d4bc 50%, #d4c4a8 100%) !important;
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .navbar {
+    background: rgba(212, 165, 116, 0.95) !important;
+    border-bottom: 1px solid rgba(166, 124, 82, 0.5);
+}
+
+body[data-theme="caramel"] .navbar-brand,
+body[data-theme="caramel"] .nav-link {
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .stat-card,
+body[data-theme="caramel"] .cleanup-card,
+body[data-theme="caramel"] .weather-today,
+body[data-theme="caramel"] .forecast-section,
+body[data-theme="caramel"] .crew-container,
+body[data-theme="caramel"] .crew-card,
+body[data-theme="caramel"] .weather-card {
+    background: rgba(255, 250, 240, 0.95) !important;
+    border: 1px solid rgba(212, 165, 116, 0.6) !important;
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .hero-header {
+    background: linear-gradient(135deg, #d4a574 0%, #c4945f 50%, #e8c49a 100%) !important;
+}
+
+body[data-theme="caramel"] footer {
+    background: linear-gradient(135deg, #a67c52 0%, #8b6644 100%) !important;
+}
+
+body[data-theme="caramel"] h1,
+body[data-theme="caramel"] h2,
+body[data-theme="caramel"] h3,
+body[data-theme="caramel"] h4,
+body[data-theme="caramel"] h5,
+body[data-theme="caramel"] h6 {
+    color: #5c4033 !important;
+}
+
+/* Matcha Theme */
+body[data-theme="matcha"] {
+    background: linear-gradient(135deg, #e8f5e0 0%, #d4e8c8 50%, #c8e0b8 100%) !important;
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .navbar {
+    background: rgba(157, 193, 131, 0.95) !important;
+    border-bottom: 1px solid rgba(90, 143, 62, 0.5);
+}
+
+body[data-theme="matcha"] .navbar-brand,
+body[data-theme="matcha"] .nav-link {
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .stat-card,
+body[data-theme="matcha"] .cleanup-card,
+body[data-theme="matcha"] .weather-today,
+body[data-theme="matcha"] .forecast-section,
+body[data-theme="matcha"] .crew-container,
+body[data-theme="matcha"] .crew-card,
+body[data-theme="matcha"] .weather-card {
+    background: rgba(255, 255, 250, 0.95) !important;
+    border: 1px solid rgba(122, 181, 92, 0.5) !important;
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .hero-header {
+    background: linear-gradient(135deg, #7ab55c 0%, #9dc183 50%, #b8d4a0 100%) !important;
+}
+
+body[data-theme="matcha"] footer {
+    background: linear-gradient(135deg, #5a8f3e 0%, #4a7a32 100%) !important;
+}
+
+body[data-theme="matcha"] h1,
+body[data-theme="matcha"] h2,
+body[data-theme="matcha"] h3,
+body[data-theme="matcha"] h4,
+body[data-theme="matcha"] h5,
+body[data-theme="matcha"] h6 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .btn-primary {
+    background: #5a8f3e !important;
+    border-color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .btn-primary:hover {
+    background: #4a7a32 !important;
+    border-color: #4a7a32 !important;
+}
+
+/* Vanilla Latte Theme (Light) */
+body[data-theme="light"] {
+    background: linear-gradient(135deg, #fefcf7 0%, #fff8e7 50%, #f5ebe0 100%) !important;
+    color: #5c4a37 !important;
+}
+
+body[data-theme="light"] .navbar {
+    background: rgba(255, 252, 245, 0.98) !important;
+    border-bottom: 1px solid rgba(214, 189, 152, 0.4);
+    box-shadow: 0 2px 8px rgba(92, 74, 55, 0.08);
+}
+
+body[data-theme="light"] .navbar-brand,
+body[data-theme="light"] .nav-link {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .nav-link:hover,
+body[data-theme="light"] .nav-link.active {
+    color: #6f4e37 !important;
+    background-color: rgba(214, 189, 152, 0.25);
+}
+
+body[data-theme="light"] .stat-card,
+body[data-theme="light"] .cleanup-card,
+body[data-theme="light"] .weather-today,
+body[data-theme="light"] .forecast-section,
+body[data-theme="light"] .crew-container,
+body[data-theme="light"] .crew-card,
+body[data-theme="light"] .weather-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(214, 189, 152, 0.4) !important;
+    color: #5c4a37 !important;
+    box-shadow: 0 4px 15px rgba(139, 115, 85, 0.1);
+}
+
+body[data-theme="light"] .hero-header {
+    background: linear-gradient(135deg, #d6bd98 0%, #e6d5b8 50%, #f5ebe0 100%) !important;
+}
+
+body[data-theme="light"] footer {
+    background: linear-gradient(135deg, #8b7355 0%, #6f5b45 100%) !important;
+}
+
+body[data-theme="light"] h1,
+body[data-theme="light"] h2,
+body[data-theme="light"] h3,
+body[data-theme="light"] h4,
+body[data-theme="light"] h5,
+body[data-theme="light"] h6 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .text-muted,
+body[data-theme="light"] .card-text {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .btn-primary {
+    background: #8b7355 !important;
+    border-color: #8b7355 !important;
+}
+
+body[data-theme="light"] .btn-primary:hover {
+    background: #6f5b45 !important;
+    border-color: #6f5b45 !important;
+}
+
+/* Espresso Theme (Dark) */
+body[data-theme="dark"] {
+    background: linear-gradient(135deg, #0d0705 0%, #1a0f0a 50%, #2c1810 100%) !important;
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .navbar {
+    background: rgba(13, 7, 5, 0.98) !important;
+    border-bottom: 1px solid rgba(139, 90, 43, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="dark"] .navbar-brand,
+body[data-theme="dark"] .nav-link {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .nav-link:hover,
+body[data-theme="dark"] .nav-link.active {
+    color: #e6c88a !important;
+    background-color: rgba(139, 90, 43, 0.25);
+}
+
+body[data-theme="dark"] .stat-card,
+body[data-theme="dark"] .cleanup-card,
+body[data-theme="dark"] .weather-today,
+body[data-theme="dark"] .forecast-section,
+body[data-theme="dark"] .crew-container,
+body[data-theme="dark"] .crew-card,
+body[data-theme="dark"] .weather-card {
+    background: rgba(44, 24, 16, 0.9) !important;
+    border: 1px solid rgba(139, 90, 43, 0.4) !important;
+    color: #e8ddd4 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="dark"] .stat-card:hover,
+body[data-theme="dark"] .cleanup-card:hover,
+body[data-theme="dark"] .crew-card:hover {
+    border-color: #c9a96e !important;
+    box-shadow: 0 8px 30px rgba(201, 169, 110, 0.3);
+}
+
+body[data-theme="dark"] .hero-header {
+    background: linear-gradient(135deg, #0d0705 0%, #2c1810 50%, #3d2314 100%) !important;
+}
+
+body[data-theme="dark"] footer {
+    background: linear-gradient(135deg, #1a0f0a 0%, #0d0705 100%) !important;
+}
+
+body[data-theme="dark"] h1,
+body[data-theme="dark"] h2,
+body[data-theme="dark"] h3,
+body[data-theme="dark"] h4,
+body[data-theme="dark"] h5,
+body[data-theme="dark"] h6,
+body[data-theme="dark"] .crew-name {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .text-muted,
+body[data-theme="dark"] .card-text,
+body[data-theme="dark"] .crew-role {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .btn-primary {
+    background: #8b5a2b !important;
+    border-color: #8b5a2b !important;
+}
+
+body[data-theme="dark"] .btn-primary:hover {
+    background: #a66b32 !important;
+    border-color: #a66b32 !important;
+}
+
+body[data-theme="dark"] .badge {
+    background: rgba(139, 90, 43, 0.4) !important;
+    color: #e6c88a !important;
+    border: 1px solid rgba(201, 169, 110, 0.5);
 }
 
 /* Dark mode styles - Ocean Theme */
