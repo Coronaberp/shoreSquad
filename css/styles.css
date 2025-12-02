@@ -1755,6 +1755,676 @@ body[data-theme="dark"] .badge {
     border: 1px solid rgba(201, 169, 110, 0.5);
 }
 
+/* ===== COMPREHENSIVE THEME STYLES FOR ALL UI ELEMENTS ===== */
+
+/* Vanilla Latte (Light) - Additional Elements */
+body[data-theme="light"] .nav-link:hover,
+body[data-theme="light"] .nav-link.active {
+    background-color: rgba(214, 189, 152, 0.3) !important;
+}
+
+body[data-theme="light"] .badge {
+    background: rgba(139, 115, 85, 0.2) !important;
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .card {
+    background: #fffaf5 !important;
+    border: 1px solid rgba(214, 189, 152, 0.4) !important;
+}
+
+body[data-theme="light"] .map-card,
+body[data-theme="light"] .map-info {
+    background: #fffaf5 !important;
+}
+
+body[data-theme="light"] .location-icon {
+    background: linear-gradient(135deg, #8b7355 0%, #6f5b45 100%) !important;
+}
+
+body[data-theme="light"] .map-btn.primary {
+    background: #8b7355 !important;
+    color: white !important;
+}
+
+body[data-theme="light"] .map-btn.secondary {
+    background: #f5ebe0 !important;
+    color: #6f4e37 !important;
+    border: 2px solid rgba(139, 115, 85, 0.3) !important;
+}
+
+body[data-theme="light"] .weather-detail-box {
+    background: #f5ebe0 !important;
+}
+
+body[data-theme="light"] .weather-detail-box i {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .crew-stats {
+    border-top-color: rgba(214, 189, 152, 0.4) !important;
+}
+
+body[data-theme="light"] .stat-item i {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .leader-card {
+    background: linear-gradient(135deg, #fff8e7 0%, #fffaf5 100%) !important;
+    border-color: #d4a574 !important;
+}
+
+body[data-theme="light"] .leader-badge {
+    background: linear-gradient(135deg, #d4a574 0%, #c4945f 100%) !important;
+}
+
+body[data-theme="light"] .me-badge {
+    background: linear-gradient(135deg, #8b7355 0%, #6f5b45 100%) !important;
+}
+
+body[data-theme="light"] .text-primary {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .text-danger {
+    color: #a65d57 !important;
+}
+
+body[data-theme="light"] .text-success {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="light"] #stats {
+    background: rgba(245, 235, 224, 0.5) !important;
+}
+
+body[data-theme="light"] #events,
+body[data-theme="light"] #crew {
+    background: #f5ebe0 !important;
+}
+
+body[data-theme="light"] .bottom-nav {
+    background: #fffaf5 !important;
+    border-top: 1px solid rgba(214, 189, 152, 0.4) !important;
+}
+
+/* Espresso (Dark) - Additional Elements */
+body[data-theme="dark"] .card {
+    background: rgba(44, 24, 16, 0.9) !important;
+    border: 1px solid rgba(139, 90, 43, 0.4) !important;
+}
+
+body[data-theme="dark"] .map-card,
+body[data-theme="dark"] .map-info {
+    background: rgba(44, 24, 16, 0.95) !important;
+}
+
+body[data-theme="dark"] .location-header {
+    border-bottom-color: rgba(139, 90, 43, 0.3) !important;
+}
+
+body[data-theme="dark"] .location-icon {
+    background: linear-gradient(135deg, #c9a96e 0%, #8b5a2b 100%) !important;
+}
+
+body[data-theme="dark"] .location-details h4 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .location-details .coordinates {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .meta-item {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .meta-item i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .map-btn.primary {
+    background: #8b5a2b !important;
+    color: white !important;
+}
+
+body[data-theme="dark"] .map-btn.primary:hover {
+    background: #a66b32 !important;
+}
+
+body[data-theme="dark"] .map-btn.secondary {
+    background: rgba(44, 24, 16, 0.8) !important;
+    color: #c9a96e !important;
+    border: 2px solid rgba(139, 90, 43, 0.4) !important;
+}
+
+body[data-theme="dark"] .weather-detail-box {
+    background: rgba(26, 15, 10, 0.8) !important;
+}
+
+body[data-theme="dark"] .weather-detail-box i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .weather-detail-box .detail-value {
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .weather-detail-box .detail-label {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .crew-stats {
+    border-top-color: rgba(139, 90, 43, 0.3) !important;
+}
+
+body[data-theme="dark"] .stat-item i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .stat-item span {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .leader-card {
+    background: linear-gradient(135deg, #3d2314 0%, #2c1810 100%) !important;
+    border-color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .leader-badge {
+    background: linear-gradient(135deg, #c9a96e 0%, #8b5a2b 100%) !important;
+}
+
+body[data-theme="dark"] .me-badge {
+    background: linear-gradient(135deg, #8b5a2b 0%, #6b4423 100%) !important;
+}
+
+body[data-theme="dark"] .text-primary {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .text-danger {
+    color: #d4726a !important;
+}
+
+body[data-theme="dark"] .text-success {
+    color: #7ab55c !important;
+}
+
+body[data-theme="dark"] #stats {
+    background: rgba(26, 15, 10, 0.5) !important;
+}
+
+body[data-theme="dark"] #events,
+body[data-theme="dark"] #crew {
+    background: rgba(44, 24, 16, 0.4) !important;
+}
+
+body[data-theme="dark"] .bottom-nav {
+    background: rgba(13, 7, 5, 0.98) !important;
+    border-top: 1px solid rgba(139, 90, 43, 0.4) !important;
+}
+
+body[data-theme="dark"] .bottom-nav .nav-link {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .bottom-nav .nav-link.active {
+    color: #c9a96e !important;
+}
+
+/* Mocha - Additional Elements */
+body[data-theme="mocha"] .nav-link:hover,
+body[data-theme="mocha"] .nav-link.active {
+    color: #f5d4a5 !important;
+    background-color: rgba(139, 69, 19, 0.3) !important;
+}
+
+body[data-theme="mocha"] .badge {
+    background: rgba(139, 69, 19, 0.4) !important;
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .card {
+    background: rgba(92, 64, 51, 0.9) !important;
+    border: 1px solid rgba(139, 69, 19, 0.5) !important;
+}
+
+body[data-theme="mocha"] .map-card,
+body[data-theme="mocha"] .map-info {
+    background: rgba(92, 64, 51, 0.95) !important;
+}
+
+body[data-theme="mocha"] .location-header {
+    border-bottom-color: rgba(139, 69, 19, 0.3) !important;
+}
+
+body[data-theme="mocha"] .location-icon {
+    background: linear-gradient(135deg, #d4a574 0%, #8b4513 100%) !important;
+}
+
+body[data-theme="mocha"] .location-details h4 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .location-details .coordinates {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .meta-item {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .meta-item i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .map-btn.primary {
+    background: #8b4513 !important;
+    color: white !important;
+}
+
+body[data-theme="mocha"] .map-btn.secondary {
+    background: rgba(61, 40, 23, 0.8) !important;
+    color: #d4a574 !important;
+    border: 2px solid rgba(139, 69, 19, 0.4) !important;
+}
+
+body[data-theme="mocha"] .weather-detail-box {
+    background: rgba(61, 40, 23, 0.8) !important;
+}
+
+body[data-theme="mocha"] .weather-detail-box i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .weather-detail-box .detail-value {
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .weather-detail-box .detail-label {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .crew-stats {
+    border-top-color: rgba(139, 69, 19, 0.3) !important;
+}
+
+body[data-theme="mocha"] .stat-item i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .stat-item span {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .leader-card {
+    background: linear-gradient(135deg, #5c4033 0%, #3d2817 100%) !important;
+    border-color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .leader-badge {
+    background: linear-gradient(135deg, #d4a574 0%, #8b4513 100%) !important;
+}
+
+body[data-theme="mocha"] .me-badge {
+    background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%) !important;
+}
+
+body[data-theme="mocha"] .btn-primary {
+    background: #8b4513 !important;
+    border-color: #8b4513 !important;
+}
+
+body[data-theme="mocha"] .btn-primary:hover {
+    background: #a65d1a !important;
+    border-color: #a65d1a !important;
+}
+
+body[data-theme="mocha"] .text-primary {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .text-danger {
+    color: #d4726a !important;
+}
+
+body[data-theme="mocha"] .text-success {
+    color: #7ab55c !important;
+}
+
+body[data-theme="mocha"] #stats {
+    background: rgba(61, 40, 23, 0.5) !important;
+}
+
+body[data-theme="mocha"] #events,
+body[data-theme="mocha"] #crew {
+    background: rgba(92, 64, 51, 0.4) !important;
+}
+
+body[data-theme="mocha"] .bottom-nav {
+    background: rgba(61, 40, 23, 0.98) !important;
+    border-top: 1px solid rgba(139, 69, 19, 0.4) !important;
+}
+
+body[data-theme="mocha"] .bottom-nav .nav-link {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .bottom-nav .nav-link.active {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .crew-name {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .crew-role {
+    color: #c4a77d !important;
+}
+
+/* Caramel - Additional Elements */
+body[data-theme="caramel"] .nav-link:hover,
+body[data-theme="caramel"] .nav-link.active {
+    color: #5c4033 !important;
+    background-color: rgba(166, 124, 82, 0.3) !important;
+}
+
+body[data-theme="caramel"] .badge {
+    background: rgba(166, 124, 82, 0.3) !important;
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .card {
+    background: rgba(255, 250, 240, 0.95) !important;
+    border: 1px solid rgba(212, 165, 116, 0.6) !important;
+}
+
+body[data-theme="caramel"] .map-card,
+body[data-theme="caramel"] .map-info {
+    background: rgba(255, 250, 240, 0.98) !important;
+}
+
+body[data-theme="caramel"] .location-header {
+    border-bottom-color: rgba(212, 165, 116, 0.4) !important;
+}
+
+body[data-theme="caramel"] .location-icon {
+    background: linear-gradient(135deg, #c4945f 0%, #a67c52 100%) !important;
+}
+
+body[data-theme="caramel"] .location-details h4 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .location-details .coordinates {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .meta-item {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .meta-item i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .map-btn.primary {
+    background: #a67c52 !important;
+    color: white !important;
+}
+
+body[data-theme="caramel"] .map-btn.secondary {
+    background: #f5e6d3 !important;
+    color: #5c4033 !important;
+    border: 2px solid rgba(166, 124, 82, 0.4) !important;
+}
+
+body[data-theme="caramel"] .weather-detail-box {
+    background: #f5e6d3 !important;
+}
+
+body[data-theme="caramel"] .weather-detail-box i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .weather-detail-box .detail-value {
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .weather-detail-box .detail-label {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .crew-stats {
+    border-top-color: rgba(212, 165, 116, 0.4) !important;
+}
+
+body[data-theme="caramel"] .stat-item i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .stat-item span {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .leader-card {
+    background: linear-gradient(135deg, #fff8e7 0%, #fffaf5 100%) !important;
+    border-color: #d4a574 !important;
+}
+
+body[data-theme="caramel"] .leader-badge {
+    background: linear-gradient(135deg, #d4a574 0%, #c4945f 100%) !important;
+}
+
+body[data-theme="caramel"] .me-badge {
+    background: linear-gradient(135deg, #a67c52 0%, #8b6644 100%) !important;
+}
+
+body[data-theme="caramel"] .btn-primary {
+    background: #a67c52 !important;
+    border-color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .btn-primary:hover {
+    background: #8b6644 !important;
+    border-color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .text-primary {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .text-danger {
+    color: #a65d57 !important;
+}
+
+body[data-theme="caramel"] .text-success {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="caramel"] .text-muted,
+body[data-theme="caramel"] .card-text {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] #stats {
+    background: rgba(232, 212, 188, 0.5) !important;
+}
+
+body[data-theme="caramel"] #events,
+body[data-theme="caramel"] #crew {
+    background: #e8d4bc !important;
+}
+
+body[data-theme="caramel"] .bottom-nav {
+    background: rgba(255, 250, 240, 0.98) !important;
+    border-top: 1px solid rgba(212, 165, 116, 0.4) !important;
+}
+
+body[data-theme="caramel"] .bottom-nav .nav-link {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .bottom-nav .nav-link.active {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .crew-name {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .crew-role {
+    color: #8b6644 !important;
+}
+
+/* Matcha - Additional Elements */
+body[data-theme="matcha"] .nav-link:hover,
+body[data-theme="matcha"] .nav-link.active {
+    color: #2d4a1c !important;
+    background-color: rgba(90, 143, 62, 0.25) !important;
+}
+
+body[data-theme="matcha"] .badge {
+    background: rgba(90, 143, 62, 0.25) !important;
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .card {
+    background: rgba(255, 255, 250, 0.95) !important;
+    border: 1px solid rgba(122, 181, 92, 0.5) !important;
+}
+
+body[data-theme="matcha"] .map-card,
+body[data-theme="matcha"] .map-info {
+    background: rgba(255, 255, 250, 0.98) !important;
+}
+
+body[data-theme="matcha"] .location-header {
+    border-bottom-color: rgba(122, 181, 92, 0.4) !important;
+}
+
+body[data-theme="matcha"] .location-icon {
+    background: linear-gradient(135deg, #7ab55c 0%, #5a8f3e 100%) !important;
+}
+
+body[data-theme="matcha"] .location-details h4 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .location-details .coordinates {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .meta-item {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .meta-item i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .map-btn.primary {
+    background: #5a8f3e !important;
+    color: white !important;
+}
+
+body[data-theme="matcha"] .map-btn.secondary {
+    background: #e8f5e0 !important;
+    color: #3d5c28 !important;
+    border: 2px solid rgba(90, 143, 62, 0.4) !important;
+}
+
+body[data-theme="matcha"] .weather-detail-box {
+    background: #e8f5e0 !important;
+}
+
+body[data-theme="matcha"] .weather-detail-box i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .weather-detail-box .detail-value {
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .weather-detail-box .detail-label {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .crew-stats {
+    border-top-color: rgba(122, 181, 92, 0.4) !important;
+}
+
+body[data-theme="matcha"] .stat-item i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .stat-item span {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .leader-card {
+    background: linear-gradient(135deg, #e8f5e0 0%, #fffff5 100%) !important;
+    border-color: #7ab55c !important;
+}
+
+body[data-theme="matcha"] .leader-badge {
+    background: linear-gradient(135deg, #7ab55c 0%, #5a8f3e 100%) !important;
+}
+
+body[data-theme="matcha"] .me-badge {
+    background: linear-gradient(135deg, #5a8f3e 0%, #4a7a32 100%) !important;
+}
+
+body[data-theme="matcha"] .text-primary {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .text-danger {
+    color: #a65d57 !important;
+}
+
+body[data-theme="matcha"] .text-success {
+    color: #4a7a32 !important;
+}
+
+body[data-theme="matcha"] .text-muted,
+body[data-theme="matcha"] .card-text {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] #stats {
+    background: rgba(212, 232, 200, 0.5) !important;
+}
+
+body[data-theme="matcha"] #events,
+body[data-theme="matcha"] #crew {
+    background: #d4e8c8 !important;
+}
+
+body[data-theme="matcha"] .bottom-nav {
+    background: rgba(255, 255, 250, 0.98) !important;
+    border-top: 1px solid rgba(122, 181, 92, 0.4) !important;
+}
+
+body[data-theme="matcha"] .bottom-nav .nav-link {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .bottom-nav .nav-link.active {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .crew-name {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .crew-role {
+    color: #5a7a45 !important;
+}
+
+/* ===== END COMPREHENSIVE THEME STYLES ===== */
+
 /* Dark mode styles - Ocean Theme */
 body.dark-mode {
     background: linear-gradient(135deg, #001e3c 0%, #003554 50%, #004b6d 100%) !important;
