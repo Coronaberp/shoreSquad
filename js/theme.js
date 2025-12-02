@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const coffeeLiquid = document.getElementById('coffeeLiquid');
     const coffeeOptions = document.querySelectorAll('.coffee-option');
     const body = document.body;
+    const coffeeSelector = document.querySelector('.coffee-theme-selector');
+    const accountDropdown = document.getElementById('accountDropdown');
     
     // Theme configurations
     const themes = {
@@ -15,20 +17,76 @@ document.addEventListener('DOMContentLoaded', () => {
         'matcha': { class: '', darkMode: false }
     };
     
-    // Load saved theme
+    // Load saved theme immediately
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme, false);
     
-    // Toggle coffee menu
-    coffeeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        coffeeMenu.classList.toggle('active');
-    });
+    // Function to close coffee menu
+    function closeCoffeeMenu() {
+        if (coffeeMenu) {
+            coffeeMenu.classList.remove('active');
+        }
+        if (coffeeSelector) {
+            coffeeSelector.classList.remove('faded');
+        }
+    }
+    
+    // Function to close account dropdown
+    function closeAccountDropdown() {
+        if (accountDropdown) {
+            const dropdown = bootstrap.Dropdown.getInstance(accountDropdown);
+            if (dropdown) {
+                dropdown.hide();
+            }
+        }
+    }
+    
+    // Toggle coffee menu - close account dropdown when opening
+    if (coffeeBtn && coffeeMenu) {
+        coffeeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpening = !coffeeMenu.classList.contains('active');
+            
+            if (isOpening) {
+                // Close account dropdown and fade it
+                closeAccountDropdown();
+                if (accountDropdown) {
+                    accountDropdown.closest('.nav-item')?.classList.add('faded');
+                }
+                coffeeSelector?.classList.remove('faded');
+            }
+            
+            coffeeMenu.classList.toggle('active');
+        });
+    }
+    
+    // Listen for Bootstrap dropdown events on account dropdown
+    if (accountDropdown) {
+        accountDropdown.addEventListener('show.bs.dropdown', () => {
+            // Close coffee menu and fade it
+            closeCoffeeMenu();
+            if (coffeeSelector) {
+                coffeeSelector.classList.add('faded');
+            }
+            accountDropdown.closest('.nav-item')?.classList.remove('faded');
+        });
+        
+        accountDropdown.addEventListener('hide.bs.dropdown', () => {
+            // Remove fade from coffee selector
+            if (coffeeSelector) {
+                coffeeSelector.classList.remove('faded');
+            }
+        });
+    }
     
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!coffeeMenu.contains(e.target) && !coffeeBtn.contains(e.target)) {
+        if (coffeeMenu && coffeeBtn && !coffeeMenu.contains(e.target) && !coffeeBtn.contains(e.target)) {
             coffeeMenu.classList.remove('active');
+            // Remove fades when closing
+            if (accountDropdown) {
+                accountDropdown.closest('.nav-item')?.classList.remove('faded');
+            }
         }
     });
     
@@ -37,7 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
         option.addEventListener('click', () => {
             const theme = option.dataset.theme;
             applyTheme(theme, true);
-            coffeeMenu.classList.remove('active');
+            if (coffeeMenu) {
+                coffeeMenu.classList.remove('active');
+            }
+            // Remove fades
+            if (accountDropdown) {
+                accountDropdown.closest('.nav-item')?.classList.remove('faded');
+            }
         });
     });
     
@@ -49,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply new theme using data-theme attribute only
         body.setAttribute('data-theme', theme);
         
-        // Animate coffee pour
-        if (animate && coffeeLiquid) {
+        // Animate coffee pour (only if elements exist)
+        if (animate && coffeeLiquid && coffeeBtn) {
             coffeeLiquid.classList.remove('pouring');
             void coffeeLiquid.offsetWidth; // Force reflow
             coffeeLiquid.classList.add('pouring');
@@ -79,10 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const chaosCircleBtn = document.getElementById('chaosCircle');
     const footerText = document.getElementById('footerText');
     const originalFooterText = footerText ? footerText.textContent : '';
-    const coffeeSelector = document.querySelector('.coffee-theme-selector');
     
     // Listen for 'c' key to toggle chaos mode
     document.addEventListener('keydown', (e) => {
+        // Ignore if typing in an input field
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
         if (e.key.toLowerCase() === 'c') {
             chaosActive = !chaosActive;
             

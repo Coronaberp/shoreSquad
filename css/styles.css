@@ -1135,6 +1135,23 @@ section {
 .coffee-theme-selector {
     position: relative;
     margin-left: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.coffee-theme-selector.faded {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Account dropdown fade when coffee menu is open */
+.nav-item.faded {
+    opacity: 0.3;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-item {
+    transition: opacity 0.3s ease;
 }
 
 .coffee-cup-btn {
@@ -1415,6 +1432,28 @@ body[data-theme="matcha"] .coffee-liquid {
     background: linear-gradient(180deg, #9dc183 0%, #5a8f3e 100%);
 }
 
+/* Theme-specific cup styling */
+body[data-theme="dark"] .cup-body,
+body[data-theme="mocha"] .cup-body {
+    background: linear-gradient(135deg, #3d2817 0%, #2d1f15 100%);
+    border-color: #8b5a2b;
+}
+
+body[data-theme="caramel"] .cup-body {
+    background: linear-gradient(135deg, #f5e6d3 0%, #e8d4bc 100%);
+    border-color: #c4945f;
+}
+
+body[data-theme="matcha"] .cup-body {
+    background: linear-gradient(135deg, #e8f5e0 0%, #d4e8c8 100%);
+    border-color: #7ab55c;
+}
+
+body[data-theme="light"] .cup-body {
+    background: linear-gradient(135deg, #fffaf5 0%, #f5ebe0 100%);
+    border-color: #d6bd98;
+}
+
 /* Dark mode for coffee selector */
 body.dark-mode .coffee-menu,
 body[data-theme="dark"] .coffee-menu,
@@ -1452,6 +1491,115 @@ body.dark-mode .coffee-desc,
 body[data-theme="dark"] .coffee-desc,
 body[data-theme="mocha"] .coffee-desc {
     color: #a89078;
+}
+
+/* Caramel Theme - Coffee Selector */
+body[data-theme="caramel"] .coffee-menu {
+    background: #fffaf5;
+    box-shadow: 0 10px 40px rgba(166, 124, 82, 0.3);
+}
+
+body[data-theme="caramel"] .coffee-menu-header {
+    color: #a67c52;
+    border-bottom-color: rgba(212, 165, 116, 0.5);
+}
+
+body[data-theme="caramel"] .coffee-option:hover {
+    background: #f5e6d3;
+}
+
+body[data-theme="caramel"] .coffee-option.active {
+    background: #f0dcc8;
+}
+
+body[data-theme="caramel"] .coffee-option.active::after {
+    color: #a67c52;
+}
+
+body[data-theme="caramel"] .coffee-name {
+    color: #5c4033;
+}
+
+body[data-theme="caramel"] .coffee-desc {
+    color: #8b6644;
+}
+
+/* Matcha Theme - Coffee Selector */
+body[data-theme="matcha"] .coffee-menu {
+    background: #fafff5;
+    box-shadow: 0 10px 40px rgba(90, 143, 62, 0.25);
+}
+
+body[data-theme="matcha"] .coffee-menu-header {
+    color: #5a8f3e;
+    border-bottom-color: rgba(122, 181, 92, 0.5);
+}
+
+body[data-theme="matcha"] .coffee-option:hover {
+    background: #e8f5e0;
+}
+
+body[data-theme="matcha"] .coffee-option.active {
+    background: #d4e8c8;
+}
+
+body[data-theme="matcha"] .coffee-option.active::after {
+    color: #5a8f3e;
+}
+
+body[data-theme="matcha"] .coffee-name {
+    color: #3d5c28;
+}
+
+body[data-theme="matcha"] .coffee-desc {
+    color: #5a7a45;
+}
+
+/* Light/Latte Theme - Coffee Selector (explicit) */
+body[data-theme="light"] .coffee-menu {
+    background: #fffaf5;
+    box-shadow: 0 10px 40px rgba(139, 115, 85, 0.2);
+}
+
+body[data-theme="light"] .coffee-menu-header {
+    color: #8b7355;
+    border-bottom-color: rgba(214, 189, 152, 0.5);
+}
+
+body[data-theme="light"] .coffee-option:hover {
+    background: #f5ebe0;
+}
+
+body[data-theme="light"] .coffee-option.active {
+    background: #f0e6dc;
+}
+
+body[data-theme="light"] .coffee-option.active::after {
+    color: #6f4e37;
+}
+
+body[data-theme="light"] .coffee-name {
+    color: #5c4a37;
+}
+
+body[data-theme="light"] .coffee-desc {
+    color: #8b7355;
+}
+
+/* Coffee Option Selection - Fade non-selected options when menu is open */
+.coffee-menu.active .coffee-option:not(.active) {
+    opacity: 0.6;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.coffee-menu.active .coffee-option:not(.active):hover {
+    opacity: 1;
+}
+
+.coffee-menu.active .coffee-option.active {
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Mocha Theme */
@@ -3172,6 +3320,153 @@ body[data-theme="mocha"] .dropdown-divider {
     border-color: rgba(139, 90, 43, 0.3);
 }
 
+/* Caramel Macchiato - Account Dropdown */
+body[data-theme="caramel"] .account-avatar {
+    border-color: #c4945f;
+}
+
+body[data-theme="caramel"] .account-dropdown:hover .account-avatar {
+    border-color: #a67c52;
+    box-shadow: 0 2px 8px rgba(166, 124, 82, 0.3);
+}
+
+body[data-theme="caramel"] .dropdown-menu {
+    background: #fffaf0;
+    border: 1px solid rgba(212, 165, 116, 0.5);
+    box-shadow: 0 8px 30px rgba(166, 124, 82, 0.25);
+}
+
+body[data-theme="caramel"] .account-dropdown-header {
+    background: linear-gradient(135deg, #e8d4bc 0%, #d4c4a8 100%);
+}
+
+body[data-theme="caramel"] .dropdown-avatar {
+    border-color: #fffaf0;
+}
+
+body[data-theme="caramel"] .dropdown-user-name {
+    color: #5c4033;
+}
+
+body[data-theme="caramel"] .dropdown-user-role {
+    color: #8b6644;
+}
+
+body[data-theme="caramel"] .dropdown-item {
+    color: #4a3728;
+}
+
+body[data-theme="caramel"] .dropdown-item:hover {
+    background-color: rgba(212, 165, 116, 0.25);
+    color: #5c4033;
+}
+
+body[data-theme="caramel"] .dropdown-item i {
+    color: #a67c52;
+}
+
+body[data-theme="caramel"] .dropdown-divider {
+    border-color: rgba(212, 165, 116, 0.4);
+}
+
+/* Matcha Latte - Account Dropdown */
+body[data-theme="matcha"] .account-avatar {
+    border-color: #7ab55c;
+}
+
+body[data-theme="matcha"] .account-dropdown:hover .account-avatar {
+    border-color: #5a8f3e;
+    box-shadow: 0 2px 8px rgba(90, 143, 62, 0.3);
+}
+
+body[data-theme="matcha"] .dropdown-menu {
+    background: #fafff5;
+    border: 1px solid rgba(122, 181, 92, 0.5);
+    box-shadow: 0 8px 30px rgba(90, 143, 62, 0.2);
+}
+
+body[data-theme="matcha"] .account-dropdown-header {
+    background: linear-gradient(135deg, #d4e8c8 0%, #c4ddb8 100%);
+}
+
+body[data-theme="matcha"] .dropdown-avatar {
+    border-color: #fafff5;
+}
+
+body[data-theme="matcha"] .dropdown-user-name {
+    color: #3d5c28;
+}
+
+body[data-theme="matcha"] .dropdown-user-role {
+    color: #5a7a45;
+}
+
+body[data-theme="matcha"] .dropdown-item {
+    color: #2d4a1c;
+}
+
+body[data-theme="matcha"] .dropdown-item:hover {
+    background-color: rgba(122, 181, 92, 0.2);
+    color: #3d5c28;
+}
+
+body[data-theme="matcha"] .dropdown-item i {
+    color: #5a8f3e;
+}
+
+body[data-theme="matcha"] .dropdown-divider {
+    border-color: rgba(122, 181, 92, 0.4);
+}
+
+/* Vanilla Latte (Light) - Account Dropdown */
+body[data-theme="light"] .account-avatar {
+    border-color: #d6bd98;
+}
+
+body[data-theme="light"] .account-dropdown:hover .account-avatar {
+    border-color: #8b7355;
+    box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
+}
+
+body[data-theme="light"] .dropdown-menu {
+    background: #fffaf5;
+    border: 1px solid rgba(214, 189, 152, 0.5);
+    box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
+}
+
+body[data-theme="light"] .account-dropdown-header {
+    background: linear-gradient(135deg, #f5ebe0 0%, #e6d5b8 100%);
+}
+
+body[data-theme="light"] .dropdown-avatar {
+    border-color: #fffaf5;
+}
+
+body[data-theme="light"] .dropdown-user-name {
+    color: #6f4e37;
+}
+
+body[data-theme="light"] .dropdown-user-role {
+    color: #8b7355;
+}
+
+body[data-theme="light"] .dropdown-item {
+    color: #5c4a37;
+}
+
+body[data-theme="light"] .dropdown-item:hover {
+    background-color: rgba(214, 189, 152, 0.3);
+    color: #6f4e37;
+}
+
+body[data-theme="light"] .dropdown-item i {
+    color: #8b7355;
+}
+
+body[data-theme="light"] .dropdown-divider {
+    border-color: rgba(214, 189, 152, 0.5);
+}
+
 body.chaos-mode .dropdown-menu {
     background: rgba(0, 0, 0, 0.9) !important;
     border: 2px solid !important;
@@ -3744,6 +4039,901 @@ body.chaos-mode .action-btn:hover {
     background: rgba(255, 0, 128, 0.2) !important;
     border-color: #40e0d0 !important;
 }
+
+/* ===== ACCOUNT PAGE THEME STYLES ===== */
+
+/* Vanilla Latte (Light) - Account Page */
+body[data-theme="light"] .back-button {
+    background: #fffaf5 !important;
+    color: #8b7355 !important;
+    border: 1px solid rgba(214, 189, 152, 0.4);
+}
+
+body[data-theme="light"] .back-button:hover {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .account-header,
+body[data-theme="light"] .account-stat-card,
+body[data-theme="light"] .account-card {
+    background: #fffaf5 !important;
+    border: 1px solid rgba(214, 189, 152, 0.4) !important;
+}
+
+body[data-theme="light"] .profile-banner {
+    background: linear-gradient(135deg, #d6bd98 0%, #e6d5b8 50%, #c4a77d 100%) !important;
+}
+
+body[data-theme="light"] .profile-avatar-large {
+    border-color: #fffaf5 !important;
+}
+
+body[data-theme="light"] .avatar-edit-btn {
+    background: #8b7355 !important;
+}
+
+body[data-theme="light"] .profile-details h1 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .profile-username {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .badge-item {
+    background: rgba(214, 189, 152, 0.3) !important;
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .badge-item.leader {
+    background: linear-gradient(135deg, #f5e6d3 0%, #e6d5b8 100%) !important;
+    color: #a67c52 !important;
+}
+
+body[data-theme="light"] .account-stat-card i {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .account-stat-card h3 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .account-stat-card p {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .account-card-header {
+    border-bottom-color: rgba(214, 189, 152, 0.4) !important;
+}
+
+body[data-theme="light"] .account-card-header h3 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .account-card-header i {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .info-row {
+    border-bottom-color: rgba(214, 189, 152, 0.3) !important;
+}
+
+body[data-theme="light"] .info-label {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .info-value {
+    color: #5c4a37 !important;
+}
+
+body[data-theme="light"] .achievement-info h5,
+body[data-theme="light"] .activity-content h5 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .achievement-info p,
+body[data-theme="light"] .activity-content p {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .achievement-info small,
+body[data-theme="light"] .activity-content small {
+    color: #a89078 !important;
+}
+
+body[data-theme="light"] .preference-label {
+    color: #5c4a37 !important;
+}
+
+body[data-theme="light"] .preference-label i {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .preference-item,
+body[data-theme="light"] .achievement-item {
+    border-bottom-color: rgba(214, 189, 152, 0.3) !important;
+}
+
+body[data-theme="light"] .activity-item {
+    border-left-color: rgba(214, 189, 152, 0.5) !important;
+}
+
+body[data-theme="light"] .action-btn {
+    background: #fffaf5 !important;
+    border-color: rgba(214, 189, 152, 0.4) !important;
+    color: #5c4a37 !important;
+}
+
+body[data-theme="light"] .action-btn:hover {
+    background: #f5ebe0 !important;
+    border-color: #8b7355 !important;
+}
+
+body[data-theme="light"] .action-btn i:first-child {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .form-check-input:checked {
+    background-color: #8b7355 !important;
+    border-color: #8b7355 !important;
+}
+
+/* Espresso (Dark) - Account Page */
+body[data-theme="dark"] .back-button {
+    background: rgba(44, 24, 16, 0.95) !important;
+    color: #c9a96e !important;
+    border: 1px solid rgba(139, 90, 43, 0.4);
+}
+
+body[data-theme="dark"] .back-button:hover {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .account-header,
+body[data-theme="dark"] .account-stat-card,
+body[data-theme="dark"] .account-card {
+    background: rgba(44, 24, 16, 0.95) !important;
+    border: 1px solid rgba(139, 90, 43, 0.4) !important;
+}
+
+body[data-theme="dark"] .profile-banner {
+    background: linear-gradient(135deg, #1a0f0a 0%, #2c1810 50%, #3d2314 100%) !important;
+}
+
+body[data-theme="dark"] .profile-avatar-large {
+    border-color: #2c1810 !important;
+}
+
+body[data-theme="dark"] .avatar-edit-btn {
+    background: #8b5a2b !important;
+    border-color: #2c1810 !important;
+}
+
+body[data-theme="dark"] .profile-details h1 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .profile-username {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .badge-item {
+    background: rgba(139, 90, 43, 0.4) !important;
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .badge-item.leader {
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.4) 0%, rgba(139, 90, 43, 0.5) 100%) !important;
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .account-stat-card i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .account-stat-card h3 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .account-stat-card p {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .account-card-header {
+    border-bottom-color: rgba(139, 90, 43, 0.3) !important;
+}
+
+body[data-theme="dark"] .account-card-header h3 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .account-card-header i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .info-row {
+    border-bottom-color: rgba(139, 90, 43, 0.2) !important;
+}
+
+body[data-theme="dark"] .info-label {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .info-value {
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .achievement-info h5,
+body[data-theme="dark"] .activity-content h5 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .achievement-info p,
+body[data-theme="dark"] .activity-content p {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .achievement-info small,
+body[data-theme="dark"] .activity-content small {
+    color: #8a7a68 !important;
+}
+
+body[data-theme="dark"] .preference-label {
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .preference-label i {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .preference-item,
+body[data-theme="dark"] .achievement-item {
+    border-bottom-color: rgba(139, 90, 43, 0.2) !important;
+}
+
+body[data-theme="dark"] .activity-item {
+    border-left-color: rgba(139, 90, 43, 0.4) !important;
+}
+
+body[data-theme="dark"] .action-btn {
+    background: rgba(26, 15, 10, 0.8) !important;
+    border-color: rgba(139, 90, 43, 0.4) !important;
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .action-btn:hover {
+    background: rgba(44, 24, 16, 0.9) !important;
+    border-color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .action-btn i:first-child {
+    color: #c9a96e !important;
+}
+
+body[data-theme="dark"] .form-check-input:checked {
+    background-color: #8b5a2b !important;
+    border-color: #8b5a2b !important;
+}
+
+/* Mocha - Account Page */
+body[data-theme="mocha"] .back-button {
+    background: rgba(92, 64, 51, 0.95) !important;
+    color: #d4a574 !important;
+    border: 1px solid rgba(139, 69, 19, 0.4);
+}
+
+body[data-theme="mocha"] .back-button:hover {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .account-header,
+body[data-theme="mocha"] .account-stat-card,
+body[data-theme="mocha"] .account-card {
+    background: rgba(92, 64, 51, 0.95) !important;
+    border: 1px solid rgba(139, 69, 19, 0.4) !important;
+}
+
+body[data-theme="mocha"] .profile-banner {
+    background: linear-gradient(135deg, #3d2817 0%, #5c4033 50%, #8b4513 100%) !important;
+}
+
+body[data-theme="mocha"] .profile-avatar-large {
+    border-color: #5c4033 !important;
+}
+
+body[data-theme="mocha"] .avatar-edit-btn {
+    background: #8b4513 !important;
+    border-color: #5c4033 !important;
+}
+
+body[data-theme="mocha"] .profile-details h1 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .profile-username {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .badge-item {
+    background: rgba(139, 69, 19, 0.4) !important;
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .badge-item.leader {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.4) 0%, rgba(139, 69, 19, 0.5) 100%) !important;
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .account-stat-card i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .account-stat-card h3 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .account-stat-card p {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .account-card-header {
+    border-bottom-color: rgba(139, 69, 19, 0.3) !important;
+}
+
+body[data-theme="mocha"] .account-card-header h3 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .account-card-header i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .info-row {
+    border-bottom-color: rgba(139, 69, 19, 0.2) !important;
+}
+
+body[data-theme="mocha"] .info-label {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .info-value {
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .achievement-info h5,
+body[data-theme="mocha"] .activity-content h5 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .achievement-info p,
+body[data-theme="mocha"] .activity-content p {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .achievement-info small,
+body[data-theme="mocha"] .activity-content small {
+    color: #a08868 !important;
+}
+
+body[data-theme="mocha"] .preference-label {
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .preference-label i {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .preference-item,
+body[data-theme="mocha"] .achievement-item {
+    border-bottom-color: rgba(139, 69, 19, 0.2) !important;
+}
+
+body[data-theme="mocha"] .activity-item {
+    border-left-color: rgba(139, 69, 19, 0.4) !important;
+}
+
+body[data-theme="mocha"] .action-btn {
+    background: rgba(61, 40, 23, 0.8) !important;
+    border-color: rgba(139, 69, 19, 0.4) !important;
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .action-btn:hover {
+    background: rgba(92, 64, 51, 0.9) !important;
+    border-color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .action-btn i:first-child {
+    color: #d4a574 !important;
+}
+
+body[data-theme="mocha"] .form-check-input:checked {
+    background-color: #8b4513 !important;
+    border-color: #8b4513 !important;
+}
+
+/* Caramel - Account Page */
+body[data-theme="caramel"] .back-button {
+    background: #fffaf0 !important;
+    color: #a67c52 !important;
+    border: 1px solid rgba(212, 165, 116, 0.4);
+}
+
+body[data-theme="caramel"] .back-button:hover {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .account-header,
+body[data-theme="caramel"] .account-stat-card,
+body[data-theme="caramel"] .account-card {
+    background: #fffaf0 !important;
+    border: 1px solid rgba(212, 165, 116, 0.4) !important;
+}
+
+body[data-theme="caramel"] .profile-banner {
+    background: linear-gradient(135deg, #d4a574 0%, #c4945f 50%, #e8c49a 100%) !important;
+}
+
+body[data-theme="caramel"] .profile-avatar-large {
+    border-color: #fffaf0 !important;
+}
+
+body[data-theme="caramel"] .avatar-edit-btn {
+    background: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .profile-details h1 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .profile-username {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .badge-item {
+    background: rgba(212, 165, 116, 0.3) !important;
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .badge-item.leader {
+    background: linear-gradient(135deg, #f5e6d3 0%, #e6d5b8 100%) !important;
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .account-stat-card i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .account-stat-card h3 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .account-stat-card p {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .account-card-header {
+    border-bottom-color: rgba(212, 165, 116, 0.4) !important;
+}
+
+body[data-theme="caramel"] .account-card-header h3 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .account-card-header i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .info-row {
+    border-bottom-color: rgba(212, 165, 116, 0.3) !important;
+}
+
+body[data-theme="caramel"] .info-label {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .info-value {
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .achievement-info h5,
+body[data-theme="caramel"] .activity-content h5 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .achievement-info p,
+body[data-theme="caramel"] .activity-content p {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .achievement-info small,
+body[data-theme="caramel"] .activity-content small {
+    color: #a89078 !important;
+}
+
+body[data-theme="caramel"] .preference-label {
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .preference-label i {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .preference-item,
+body[data-theme="caramel"] .achievement-item {
+    border-bottom-color: rgba(212, 165, 116, 0.3) !important;
+}
+
+body[data-theme="caramel"] .activity-item {
+    border-left-color: rgba(212, 165, 116, 0.5) !important;
+}
+
+body[data-theme="caramel"] .action-btn {
+    background: #fffaf0 !important;
+    border-color: rgba(212, 165, 116, 0.4) !important;
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .action-btn:hover {
+    background: #f5e6d3 !important;
+    border-color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .action-btn i:first-child {
+    color: #a67c52 !important;
+}
+
+body[data-theme="caramel"] .form-check-input:checked {
+    background-color: #a67c52 !important;
+    border-color: #a67c52 !important;
+}
+
+/* Matcha - Account Page */
+body[data-theme="matcha"] .back-button {
+    background: #fffff5 !important;
+    color: #5a8f3e !important;
+    border: 1px solid rgba(122, 181, 92, 0.4);
+}
+
+body[data-theme="matcha"] .back-button:hover {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .account-header,
+body[data-theme="matcha"] .account-stat-card,
+body[data-theme="matcha"] .account-card {
+    background: #fffff5 !important;
+    border: 1px solid rgba(122, 181, 92, 0.4) !important;
+}
+
+body[data-theme="matcha"] .profile-banner {
+    background: linear-gradient(135deg, #7ab55c 0%, #9dc183 50%, #b8d4a0 100%) !important;
+}
+
+body[data-theme="matcha"] .profile-avatar-large {
+    border-color: #fffff5 !important;
+}
+
+body[data-theme="matcha"] .avatar-edit-btn {
+    background: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .profile-details h1 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .profile-username {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .badge-item {
+    background: rgba(122, 181, 92, 0.25) !important;
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .badge-item.leader {
+    background: linear-gradient(135deg, #e8f5e0 0%, #d4e8c8 100%) !important;
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .account-stat-card i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .account-stat-card h3 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .account-stat-card p {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .account-card-header {
+    border-bottom-color: rgba(122, 181, 92, 0.4) !important;
+}
+
+body[data-theme="matcha"] .account-card-header h3 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .account-card-header i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .info-row {
+    border-bottom-color: rgba(122, 181, 92, 0.3) !important;
+}
+
+body[data-theme="matcha"] .info-label {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .info-value {
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .achievement-info h5,
+body[data-theme="matcha"] .activity-content h5 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .achievement-info p,
+body[data-theme="matcha"] .activity-content p {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .achievement-info small,
+body[data-theme="matcha"] .activity-content small {
+    color: #7a9a65 !important;
+}
+
+body[data-theme="matcha"] .preference-label {
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .preference-label i {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .preference-item,
+body[data-theme="matcha"] .achievement-item {
+    border-bottom-color: rgba(122, 181, 92, 0.3) !important;
+}
+
+body[data-theme="matcha"] .activity-item {
+    border-left-color: rgba(122, 181, 92, 0.5) !important;
+}
+
+body[data-theme="matcha"] .action-btn {
+    background: #fffff5 !important;
+    border-color: rgba(122, 181, 92, 0.4) !important;
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .action-btn:hover {
+    background: #e8f5e0 !important;
+    border-color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .action-btn i:first-child {
+    color: #5a8f3e !important;
+}
+
+body[data-theme="matcha"] .form-check-input:checked {
+    background-color: #5a8f3e !important;
+    border-color: #5a8f3e !important;
+}
+
+/* ===== WEATHER PREDICTION READABILITY FIXES ===== */
+
+/* Weather card text improvements for all themes */
+.weather-card .day-name {
+    font-weight: 700 !important;
+}
+
+.weather-card .forecast-desc {
+    font-weight: 500 !important;
+}
+
+.weather-card .temp-high,
+.weather-card .temp-low {
+    font-weight: 600 !important;
+}
+
+/* Vanilla Latte - Weather */
+body[data-theme="light"] .weather-card .day-name {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .weather-card .date-text {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .weather-card .forecast-desc {
+    color: #5c4a37 !important;
+}
+
+body[data-theme="light"] .weather-card .temp-high {
+    color: #a65d57 !important;
+}
+
+body[data-theme="light"] .weather-card .temp-low {
+    color: #6f5b45 !important;
+}
+
+body[data-theme="light"] .weather-card .humidity-text {
+    color: #8b7355 !important;
+}
+
+body[data-theme="light"] .weather-today h3 {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .weather-today .current-temp {
+    color: #6f4e37 !important;
+}
+
+body[data-theme="light"] .forecast-section h4 {
+    color: #6f4e37 !important;
+}
+
+/* Espresso - Weather */
+body[data-theme="dark"] .weather-card .day-name {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .weather-card .date-text {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .weather-card .forecast-desc {
+    color: #e8ddd4 !important;
+}
+
+body[data-theme="dark"] .weather-card .temp-high {
+    color: #f5a623 !important;
+}
+
+body[data-theme="dark"] .weather-card .temp-low {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .weather-card .humidity-text {
+    color: #b8a089 !important;
+}
+
+body[data-theme="dark"] .weather-today h3 {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .weather-today .current-temp {
+    color: #e6c88a !important;
+}
+
+body[data-theme="dark"] .forecast-section {
+    background: rgba(44, 24, 16, 0.9) !important;
+}
+
+body[data-theme="dark"] .forecast-section h4 {
+    color: #e6c88a !important;
+}
+
+/* Mocha - Weather */
+body[data-theme="mocha"] .weather-card .day-name {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .weather-card .date-text {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .weather-card .forecast-desc {
+    color: #f5f0e8 !important;
+}
+
+body[data-theme="mocha"] .weather-card .temp-high {
+    color: #f5a623 !important;
+}
+
+body[data-theme="mocha"] .weather-card .temp-low {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .weather-card .humidity-text {
+    color: #c4a77d !important;
+}
+
+body[data-theme="mocha"] .weather-today h3 {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .weather-today .current-temp {
+    color: #f5d4a5 !important;
+}
+
+body[data-theme="mocha"] .forecast-section {
+    background: rgba(92, 64, 51, 0.9) !important;
+}
+
+body[data-theme="mocha"] .forecast-section h4 {
+    color: #f5d4a5 !important;
+}
+
+/* Caramel - Weather */
+body[data-theme="caramel"] .weather-card .day-name {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .weather-card .date-text {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .weather-card .forecast-desc {
+    color: #4a3728 !important;
+}
+
+body[data-theme="caramel"] .weather-card .temp-high {
+    color: #c4450c !important;
+}
+
+body[data-theme="caramel"] .weather-card .temp-low {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .weather-card .humidity-text {
+    color: #8b6644 !important;
+}
+
+body[data-theme="caramel"] .weather-today h3 {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .weather-today .current-temp {
+    color: #5c4033 !important;
+}
+
+body[data-theme="caramel"] .forecast-section h4 {
+    color: #5c4033 !important;
+}
+
+/* Matcha - Weather */
+body[data-theme="matcha"] .weather-card .day-name {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .weather-card .date-text {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .weather-card .forecast-desc {
+    color: #2d4a1c !important;
+}
+
+body[data-theme="matcha"] .weather-card .temp-high {
+    color: #c4450c !important;
+}
+
+body[data-theme="matcha"] .weather-card .temp-low {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .weather-card .humidity-text {
+    color: #5a7a45 !important;
+}
+
+body[data-theme="matcha"] .weather-today h3 {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .weather-today .current-temp {
+    color: #3d5c28 !important;
+}
+
+body[data-theme="matcha"] .forecast-section h4 {
+    color: #3d5c28 !important;
+}
+
+/* ===== END ACCOUNT PAGE & WEATHER THEME STYLES ===== */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
