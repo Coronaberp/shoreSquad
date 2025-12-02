@@ -2334,11 +2334,16 @@ body.chaos-mode .hero-particles .particle {
     padding: 0.4rem !important;
 }
 
+.account-dropdown::after {
+    display: none !important;
+}
+
 .account-avatar {
     border-radius: 50%;
     border: 2px solid #e3f2fd;
     transition: all 0.3s ease;
     object-fit: cover;
+    display: block;
 }
 
 .account-dropdown:hover .account-avatar {
